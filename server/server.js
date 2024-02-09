@@ -1,14 +1,31 @@
 import express from "express"
 import dotenv from "dotenv"
 import colors from "colors"
+import connectDB from "./database/database.js"
+import morgan from "morgan"
 
+//configure env file
 dotenv.config()
-
-const app = express()
+// rest object
+const app = express();
+// port number
 const PORT = process.env.PORT || 5000
+
+//middleware for json
+app.use(express.json())
+
+//custom morgan console it want to custom
+// const myFormat = ':method :url :status :response-time[ms] :user-agent';
+// app.use(morgan(myFormat));
+
+//morgan middleware for console http request
+app.use(morgan("dev"))
 
 app.get("/", (req,res)=>{
     res.send({message :"Nodemom is working"})
 })
 
+//Database Connection call
+connectDB()
+//Server start function
 app.listen(5500, ()=>console.log(`Server is running on port ${PORT}`.bgBlue.white))

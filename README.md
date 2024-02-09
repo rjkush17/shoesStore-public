@@ -5,10 +5,6 @@ express, nodemon
 colors.js
 error page
 
-"start" : "node server.js"
-"server" : "nodemon server.js"
-
-type : "module"
 
 morgan
-env
+mongoose ip white list
