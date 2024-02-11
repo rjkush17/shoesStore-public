@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import colors from "colors"
 import connectDB from "./database/database.js"
 import morgan from "morgan"
+import router from "./router.js"
 
 //configure env file
 dotenv.config()
@@ -21,9 +22,8 @@ app.use(express.json())
 //morgan middleware for console http request
 app.use(morgan("dev"))
 
-app.get("/", (req,res)=>{
-    res.send({message :"Nodemom is working"})
-})
+//router to connect APIs
+app.use("/api",router)
 
 //Database Connection call
 connectDB()
