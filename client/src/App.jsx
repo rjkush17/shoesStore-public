@@ -1,4 +1,7 @@
-
+import React from "react"
+import header from "./Components/Header"
+import Footer from "./Components/Footer"
+import Header from "./Components/Header"
 
 function App() {
 
@@ -6,7 +9,8 @@ function App() {
   return (
     <>
 
-    <p className="text-3xl font-bold underline text-center text-cyan-600">Sytlish Shoes Online Store project in mern stack </p>        
+    {/* <Header/> finish baki hai */}
+    <Footer/>   
     </>
   )
 }
