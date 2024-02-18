@@ -15,8 +15,8 @@ function Header() {
 
   return (
     <>
-      <header className=" text-normal pt-3 overflow-x-hidden	w-screen">
-        <section className="flex items-center	justify-between px-8">
+      <header className=" text-normal pt-3 overflow-hidden w-full bg-white z-40 fixed top-0">
+        <section className="flex items-center	justify-between px-2 mobile:px-8">
           <div className="flex gap-3 text-2xl">
             <FaXTwitter />
             <FaInstagram />
@@ -37,7 +37,7 @@ function Header() {
         <hr className="mt-3" />
 
         <nav className="h-12 flex items-center cols justify-between flex-col tablet:flex-row overflow-hidden">
-          <div className="flex items-center justify-between w-full  px-8">
+          <div className="flex items-center justify-between w-full  px-2 mobile:px-8">
             <img src={logo} className="h-12" />
             <div
               className="ml-auto flex items-center text-2xl tablet:hidden"
@@ -74,7 +74,7 @@ function Header() {
         </nav>
       </header>
 
-      <p className="block tablet:hidden text-center">
+      <p className="block text-xs mobile:text-normal my-2 tablet:hidden text-center">
         <span className="font-[600]">Special Offer: </span>Free Shipping on all
         the orders above $100
       </p>

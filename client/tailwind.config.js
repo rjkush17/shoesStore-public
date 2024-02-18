@@ -7,10 +7,11 @@ export default {
         "lightFont":["Poppins", "sans-serif"]
       },
       fontSize:{
-        "normal":["16px"]
+        "normal":["14px"]
       },
       screens:{
-        "tablet":"900px"
+        "tablet":"900px",
+        "mobile":"500px"
       }
     },
   },
