@@ -1,6 +1,8 @@
 import React from "react"
 import Footer from "./Components/Footer"
 import Header from "./Components/Header"
+import ProductPage from "./Page/ProductPage"
+import { Routes, Route } from "react-router-dom"
 
 function App() {
 
@@ -9,7 +11,10 @@ function App() {
     <>
 
     <Header/> 
-    <div className="w-screen h-screen bg-red-400  text-center text-4xl font-extrabold">Section or page</div>
+    <Routes>
+    <Route path="/" element={<ProductPage/>} />
+    </Routes>
+
     <Footer/>   
     </>
   )

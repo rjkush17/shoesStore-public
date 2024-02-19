@@ -1,55 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+/*Custom Scroll bar CSS*/
 ::-webkit-scrollbar {
     width: 6px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #171717;
-    border-radius: 1px; 
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #F3F4F6; 
-  }
- 
-body {
-    scroll-behavior: smooth;
-    @apply m-0 p-0 font-lightFont text-normal font-[400] pt-[100px] leading-6 overflow-x-hidden
 }
+
+::-webkit-scrollbar-thumb {
+    background: #171717;
+    border-radius: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F3F4F6;
+}
+
+/*Universal CSS*/
+body{
+    scroll-behavior: smooth;
+    @apply m-0 p-0 font-lightFont text-normal font-[400] pt-[100px] leading-6 overflow-x-hidden 
+}
+h1{
+    @apply text-h1 font-extrabold font-boldFont
+}
+h5{
+    @apply text-lg font-bold
+}
+.button{
+    @apply py-2 px-4
+}
+.input{
+    @apply h-12 w-full border-gray-300 border-2 border-gray-500
+}
+
+
 /* NavBar CSS*/
 .nav-side-panel {
+   
     @apply bg-transparent flex gap-8 px-8 text-xl
 }
+
 @media (max-width: 900px) {
     .nav-side-panel {
-        @apply flex-col justify-between fixed w-screen h-full bg-black top-0 gap-0 pr-0 bg-opacity-60 right-[-110%] hidden 
+        @apply flex-col justify-between fixed w-screen h-full bg-black top-0 gap-0 pr-0 bg-opacity-60 right-[-110%] hidden
     }
+
     .nav-li {
         @apply bg-white ml-auto py-2 pl-6 text-2xl w-9/12 h-full block
-    } 
+    }
+
     .nav-side-panel.open {
         right: 0;
         @apply flex
-    }}
+    }
+}
+
 @media (max-width: 450px) {
     .nav-li {
         @apply w-[80%] h-full
     }
+
     .nav-side-panel {
         @apply pl-0
-    }}
+    }
+}
 
 /* Footer CSS*/
-
-.footer-col{
-    @apply flex flex-col gap-0 min-w-[50%] mb-2  tablet:min-w-36 mobile:min-w-[100%] mobile:gap-3 mobile:mb-12
+.footer-col {
+    @apply flex flex-col gap-0 min-w-[50%] mb-2 tablet:min-w-36 mobile:min-w-[100%] mobile:gap-3 mobile:mb-12
 }
-.footer_heading{
+
+.footer_heading {
     @apply text-xl font-bold uppercase
 }
+
+/*Single Product Page CSS*/

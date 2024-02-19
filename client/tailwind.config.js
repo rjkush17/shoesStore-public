@@ -4,10 +4,12 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        "lightFont":["Poppins", "sans-serif"]
+        "lightFont":["Poppins", "sans-serif"],
+        "boldFont":["Roboto", "sans-serif"]
       },
       fontSize:{
-        "normal":["14px"]
+        "normal":["16px"],
+        "h1":["38px"]
       },
       screens:{
         "tablet":"900px",
