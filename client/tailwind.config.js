@@ -13,7 +13,8 @@ export default {
       },
       screens:{
         "tablet":"900px",
-        "mobile":"500px"
+        "mobile":"500px",
+        "slider":"720px"
       }
     },
   },

@@ -58,7 +58,6 @@ h5{
         @apply flex
     }
 }
-
 @media (max-width: 450px) {
     .nav-li {
         @apply w-[80%] h-full
@@ -78,4 +77,18 @@ h5{
     @apply text-xl font-bold uppercase
 }
 
-/*Single Product Page CSS*/
+/*home Page CSS*/
+/* Slider CSS */
+.slick-slide > div{
+    margin:  0 20px;
+}
+.slick-dots{
+    bottom: -55px;
+}
+.slick-dots li.slick-active button::before{
+ color: rgb(255, 0, 0) !important;
+}
+.slick-dots li button::before{
+    color: gray;
+    font-size: 1rem;
+}

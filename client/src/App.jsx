@@ -1,18 +1,32 @@
-import React from "react"
+import React, {useState} from "react"
 import Footer from "./Components/Footer"
 import Header from "./Components/Header"
 import ProductPage from "./Page/ProductPage"
 import { Routes, Route } from "react-router-dom"
+import Home from "./Page/Home"
+import Login from "./Components/Login"
+import Cart from "./Components/Cart"
 
 function App() {
 
+  const [isLoginOpen, SetIsLoginOpen] = useState(false)
+  const handleLoginopen = () =>{
+    SetIsLoginOpen(!isLoginOpen)
+  }
+
+  const [isCartOpen, SetIsCartOpen] = useState(false)
+  const handleCartOpen = () =>{
+    SetIsCartOpen(!isCartOpen)
+  }
 
   return (
     <>
-
-    <Header/> 
+   { isLoginOpen &&  <Login handleLoginopen={handleLoginopen} />}
+   {isCartOpen && <Cart handleCartOpen={handleCartOpen}/>}
+    <Header handleLoginopen={handleLoginopen} handleCartOpen={handleCartOpen} /> 
     <Routes>
-    <Route path="/" element={<ProductPage/>} />
+    <Route path="/productpage" element={<ProductPage/>} />
+    <Route path="/" element={<Home/>}/>
     </Routes>
 
     <Footer/>   

@@ -6,7 +6,7 @@ import { FiSearch } from "react-icons/fi";
 import { IoCloseSharp } from "react-icons/io5";
 import logo from "../assets/img/logo.png";
 
-function Header() {
+function Header({handleLoginopen, handleCartOpen}) {
   const [isOpen, setIsOpen] = useState(false);
   const handleNav = () => {
     setIsOpen(!isOpen);
@@ -28,8 +28,8 @@ function Header() {
             all the orders above $100
           </p>
           <div className="flex gap-3 text-2xl">
-            <FaRegUser />
-            <HiOutlineShoppingCart />
+            <FaRegUser onClick={handleLoginopen} />
+            <HiOutlineShoppingCart onClick={handleCartOpen} />
             <FiSearch />
           </div>
         </section>
