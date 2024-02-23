@@ -8,8 +8,14 @@ import reviews1 from "../assets/reviews/review-item1.jpg";
 import reviews2 from "../assets/reviews/review-item2.jpg";
 import reviews3 from "../assets/reviews/review-item3.jpg";
 import { FaStar } from "react-icons/fa";
+import { useParams } from 'react-router-dom';
+
 
 function ProductPage() {
+
+    const {productID} = useParams();
+    console.log(productID)
+
   // function for increase and decreace purchase quantity
   const [quantity, SetQuantity] = useState(1);
   const handleQuantity = (op) => {
@@ -34,7 +40,7 @@ function ProductPage() {
     setCurrentScreen(screen);
   };
 
-  //function for sunmitting review
+  //function for submitting review
 const handlesubmit = (e) =>{
 e.preventDefault()
 alert("Review Submiited for checking % it will show after QC progess")
@@ -264,7 +270,7 @@ alert("Review Submiited for checking % it will show after QC progess")
               ))}
             </div>
           )}
-          {/* {currentScreen === "Reviews" && (
+          {currentScreen === "Reviews" && (
             <div className="w-7/12 mx-auto ">
               <h5 className="text-black text-center text-3xl">Add a review</h5>
               <p className="text-center">
@@ -293,7 +299,7 @@ alert("Review Submiited for checking % it will show after QC progess")
 
               </form>
             </div>
-          )} */}
+          )}
         </div>
       </section>
     </>

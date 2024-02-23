@@ -8,3 +8,4 @@ lootiesflies
 smooth crolling
 react parallax
 lazy loading
+404 page not found

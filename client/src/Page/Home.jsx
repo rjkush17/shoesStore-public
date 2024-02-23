@@ -8,8 +8,12 @@ import { Parallax } from "react-parallax";
 import home_single from "../assets/home/home_single.jpg";
 import product from "../assets/home/product.jpg";
 import blogImage from "../assets/home/blog.jpg";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+
+  const navigate = useNavigate()
+
   const listingData = [
     {
       productname: "Running shoes for men",
@@ -52,6 +56,7 @@ function Home() {
       img: product,
     },
   ];
+
 
   const blog = [
     {
@@ -137,7 +142,7 @@ function Home() {
         <p className="my-6 tracking-widest text-lg mobile:text-2xl font-light text-center mb-4"> <button className="mx-2">Featured</button> |<button className="mx-2">Latest</button> | <button className="mx-2">Best Seller</button> | <button className="mx-2">Sale Products</button></p>
         <div className="grid gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-4 tablet:grid-cols-3">
           {listingData.map((val, ind)=>(
-            <div key={ind} className="mx-auto">
+            <div key={ind} className="mx-auto" onClick={()=>navigate("/productpage/its work")}>
               <div className="min-w-24 min-h-24">
                 <img src={val.img} className="w-full h-full object-cover" alt={val.productname} />
               </div>
@@ -158,7 +163,7 @@ function Home() {
           <div className="py-16 mobile:py-32">
             <p>Grab these shoes on special prices</p>
             <p className="text-[48px] mobile:text-[68px] my-8">Items on Sale</p>
-            <button className="border botder-white text-lg mobile:text-xl py-2 mobile:py-4 px-5 mobile:px-10 hover:bg-white hover:text-black">
+            <button  onClick={()=>navigate('/shop/sale')} className="border botder-white text-lg mobile:text-xl py-2 mobile:py-4 px-5 mobile:px-10 hover:bg-white hover:text-black" >
               BUY NOW
             </button>
           </div>

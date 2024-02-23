@@ -6,7 +6,11 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./Page/Home"
 import Login from "./Components/Login"
 import Cart from "./Components/Cart"
+import Shop from "./Page/shop"
+
+
 function App() {
+
 
   const [isLoginOpen, SetIsLoginOpen] = useState(false)
   const handleLoginopen = () =>{
@@ -24,7 +28,8 @@ function App() {
    {isCartOpen && <Cart handleCartOpen={handleCartOpen}/>}
     <Header handleLoginopen={handleLoginopen} handleCartOpen={handleCartOpen} /> 
     <Routes>
-    <Route path="/productpage" element={<ProductPage/>} />
+    <Route path="/productpage/:productID" element={<ProductPage/>} />
+    <Route path="/shop/:type" element={<Shop/>} />
     <Route path="/" element={<Home/>}/>
     </Routes>
 
