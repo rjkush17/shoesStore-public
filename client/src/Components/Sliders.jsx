@@ -49,7 +49,7 @@ function Sliders() {
   return (
     <Slider {...settings} className="w-11/12 mx-auto mt-10 mb-20">
     {/* div 1 */}
-    <div className="h-[600px] ">
+    <div className="h-[400px] mobile:h-[600px] ">
       <div
         className="bg-cover bg-center h-full rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image1})` }}
@@ -66,12 +66,12 @@ function Sliders() {
     </div>
 
     {/* div2 */}
-    <div className=" h-[600px] ">
+    <div className="h-[400px] mobile:h-[600px] ">
       <div
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden mb-[4%] relative"
         style={{ backgroundImage: `url(${card_image2})` }}
       >
-          <div className=" absolute bottom-12 left-12 leading-9 text-white">
+          <div className=" absolute bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
           <h1>Sport wear</h1>
           <button className="w-fit uppercase leading-6">
             shop Now
@@ -83,7 +83,7 @@ function Sliders() {
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image3})` }}
       >
-        <div className=" absolute bottom-12 left-12 leading-9 text-white">
+        <div className=" absolute  bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
           <h1>Fashion Shoes</h1>
           <button className="w-fit uppercase leading-6">
             shop Now
@@ -94,7 +94,7 @@ function Sliders() {
     </div>
 
        {/* div 3 */}
-       <div className="h-[600px] ">
+       <div className="h-[400px] mobile:h-[600px] ">
       <div
         className="bg-cover bg-center h-full rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image4})` }}
@@ -111,12 +111,12 @@ function Sliders() {
     </div>
 
     {/* div 4 */}
-    <div className=" h-[600px] ">
+    <div className="h-[400px] mobile:h-[600px]">
       <div
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden mb-[4%] relative"
         style={{ backgroundImage: `url(${card_image5})` }}
       >
-          <div className=" absolute bottom-12 left-12 leading-9 text-white">
+          <div className=" absolute   bottom-6 mobile:bottom-12 left-6 mobie:left-12leading-9 text-white">
           <h1>Men Shoes</h1>
           <button className="w-fit uppercase leading-6">
             shop Now
@@ -128,7 +128,7 @@ function Sliders() {
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image6})` }}
       >
-        <div className=" absolute bottom-12 left-12 leading-9 text-white">
+        <div className=" absolute  bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
           <h1>Women Shoes</h1>
           <button className="w-fit uppercase leading-6">
             shop Now

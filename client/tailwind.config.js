@@ -14,7 +14,8 @@ export default {
       screens:{
         "tablet":"900px",
         "mobile":"500px",
-        "slider":"720px"
+        "slider":"720px",
+        "grid":"1200px"
       }
     },
   },

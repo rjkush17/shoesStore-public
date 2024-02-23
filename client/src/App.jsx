@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./Page/Home"
 import Login from "./Components/Login"
 import Cart from "./Components/Cart"
-
 function App() {
 
   const [isLoginOpen, SetIsLoginOpen] = useState(false)
@@ -29,7 +28,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
     </Routes>
 
-    <Footer/>   
+    <Footer/> 
     </>
   )
 }

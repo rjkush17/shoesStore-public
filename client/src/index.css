@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
 
 @tailwind base;
@@ -91,4 +91,10 @@ h5{
 .slick-dots li button::before{
     color: gray;
     font-size: 1rem;
+}
+.slick-arrow{
+    display: none !important;
+}
+.react-parallax-bgimage{
+    background-size: cover !important;
 }

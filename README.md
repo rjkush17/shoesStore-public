@@ -7,3 +7,4 @@ npm aos animation
 lootiesflies
 smooth crolling
 react parallax
+lazy loading
