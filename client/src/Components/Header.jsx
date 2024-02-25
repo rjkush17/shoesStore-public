@@ -5,8 +5,14 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { IoCloseSharp } from "react-icons/io5";
 import logo from "../assets/img/logo.png";
+import { useNavigate } from "react-router-dom";
+
 
 function Header({handleLoginopen, handleCartOpen}) {
+  
+  const navigate = useNavigate();
+
+  //function for open/close nav panel
   const [isOpen, setIsOpen] = useState(false);
   const handleNav = () => {
     setIsOpen(!isOpen);
@@ -38,7 +44,7 @@ function Header({handleLoginopen, handleCartOpen}) {
 
         <nav className="h-12 flex items-center cols justify-between flex-col tablet:flex-row overflow-hidden">
           <div className="flex items-center justify-between w-full  px-2 mobile:px-8">
-            <img src={logo} className="h-12" />
+            <img src={logo} className="h-12"  onClick={()=>navigate("/")}/>
             <div
               className="ml-auto flex items-center text-2xl tablet:hidden"
               onClick={handleNav}

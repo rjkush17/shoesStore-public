@@ -4,6 +4,7 @@ import colors from "colors"
 import connectDB from "./database/database.js"
 import morgan from "morgan"
 import router from "./router.js"
+import cors from "cors"
 
 //configure env file
 dotenv.config()
@@ -12,6 +13,8 @@ const app = express();
 // port number
 const PORT = process.env.PORT || 5000
 
+//enable cors to run client and server in same computer
+app.use(cors())
 //middleware for json
 app.use(express.json())
 
