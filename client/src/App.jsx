@@ -26,15 +26,15 @@ function App() {
     <>
    { isLoginOpen &&  <Login handleLoginopen={handleLoginopen} />}
    {isCartOpen && <Cart handleCartOpen={handleCartOpen}/>}
-    <Header handleLoginopen={handleLoginopen} handleCartOpen={handleCartOpen} /> 
+    {/* <Header handleLoginopen={handleLoginopen} handleCartOpen={handleCartOpen} />  */}
     <Routes>
     <Route path="/" element={<Home/>}/>
     <Route path="/productpage/:productID" element={<ProductPage/>} />
     <Route path="/shop/:type" element={<Shop/>} />
   
     </Routes>
-
-    <Footer/> 
+{/* 
+    <Footer/>  */}
     </>
   )
 }

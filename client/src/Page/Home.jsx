@@ -30,8 +30,6 @@ function Home() {
     }
   }, [homeList, currentProduct]);
 
-  console.log(homeList);
-
   const handleCurrent = (e) => {
     const data = homeList.filter((product) => product.label.includes(e));
     setCurrentProduct(e);
