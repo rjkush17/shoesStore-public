@@ -18,6 +18,7 @@ function Shop() {
     setSorted(ShopData);
   }, [ShopData]);
 
+  //function to sort prodcut by name
   const handleSort = (sortProperty, sortOrder = "asc") => {
     const sortedData = [...ShopData].sort((a, b) => {
       if (sortOrder === "asc") {
@@ -30,6 +31,7 @@ function Shop() {
     setSorted(sortedData);
   };
 
+  //function for sort products by selling price
   const handleSortByPrice = (sortOrder) => {
     const sortedData = [...ShopData].sort((a, b) => {
       if (sortOrder === "asc") {
@@ -41,11 +43,11 @@ function Shop() {
     setSorted(sortedData);
   };
 
+  //function for fliter product by range
   const filterByPrice = (lowerLimit, upperLimit) => {
     const sortedData = ShopData.filter(
       (e) => e.selling_price >= lowerLimit && e.selling_price <= upperLimit
     );
-    console.log(sortedData);
     setSorted(sortedData);
   };
 
@@ -54,34 +56,33 @@ function Shop() {
       {isLoading && <p>Please wait fetching Data...</p>}
       {errors && <p>{errors}</p>}
 
-      {!errors && sorted && (
-        <>
-          <div className="">
-            <p>Shop</p>
-            <p>Shop &gt; {type}</p>
+      {!isLoading && !errors && sorted && (
+        <div className="w-screen overflow-x-hidden">
+          <div className="bg-zinc-100 text-center py-8 mobile:py-16 my-10 w-full">
+            <p className="text-4xl mobile:text-7xl mb-2 mobile:mb-6">SHOP</p>
+            <p className="text-xl">Shop &gt; {type}</p>
           </div>
-          <div className="flex">
-            <section className="w-8/12 grid gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-3 tablet:grid-cols-3">
+          <div className="flex flex-col mobile:flex-row">
+            <section className=" w-full mobile:w-10/12 grid gap-0 mobile:gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-3 tablet:grid-cols-3">
               {sorted.length > 0 ? (
                 sorted.map((val, ind) => <ProductCard key={ind} val={val} />)
               ) : (
                 <p>No products found within the specified price/Category.</p>
               )}
             </section>
-            <section>
-              <div className="">
-                <h2>Categories</h2>
-                <p className="">All type shoes</p>
-                <p onClick={() => fetchData("men")}>mens shoes</p>
+            <section className="leading-8 w-full mobile:w-2/12 pl-3 mobile:ml-0 text-lg text-gray-500">
+              <div className="mt-8">
+                <h2 className="font-bold underline mb-3 text-black">Categories</h2>
+                <p className="" onClick={() => navigate("/shop/all")}>All type shoes</p>
+                <p onClick={() => navigate("/shop/men")}>mens shoes</p>
                 <p onClick={() => navigate("/shop/women")}>women shoes</p>
                 <p onClick={() => navigate("/shop/sports")}>Sports shoes</p>
                 <p onClick={() => navigate("/shop/fashion")}>Fashion shoes</p>
               </div>
-              <div>
-                <h2>Sort by</h2>
+              <div className="mt-8">
+                <h2  className="font-bold underline mb-3 text-black">Sort by</h2>
                 <p onClick={() => handleSort("title", "asc")}>Name A - Z</p>
                 <p onClick={() => handleSort("title", "dsc")}>Name Z - A</p>
-
                 <p onClick={() => handleSortByPrice("asc")}>
                   Price Low to High
                 </p>
@@ -89,19 +90,16 @@ function Shop() {
                   Price High to low
                 </p>
               </div>
-              <div>
-                <h2>Fliter by Price</h2>
-                <p onClick={() => filterByPrice(0, 10)}>less then $100</p>
+              <div className="mt-8">
+                <h2  className="font-bold underline mb-3 text-black">Fliter by Price</h2>
+                <p onClick={() => filterByPrice(0, 100)}>less then $100</p>
                 <p onClick={() => filterByPrice(100, 120)}>$100 - $120</p>
                 <p onClick={() => filterByPrice(120, 150)}>$120 - $150</p>
-                <p onClick={() => filterByPrice(150, 10000)}>$150 +</p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p onClick={() => filterByPrice(150, 10000)}>$150+</p>
               </div>
             </section>
           </div>
-        </>
+        </div>
       )}
     </>
   );

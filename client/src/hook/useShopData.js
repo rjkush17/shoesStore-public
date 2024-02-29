@@ -26,7 +26,6 @@ export const useShopData = () => {
         setIsLoading(false);
         setErrors(null);
         setShopData(data.homeProducts);
-        console.log(data)
       }
     } catch (error) {
       console.log("error white fetching data ", error);

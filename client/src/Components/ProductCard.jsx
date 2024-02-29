@@ -8,7 +8,7 @@ function ProductCard({ val }) {
 
   return (
     <div className=" group  mx-auto cursor-pointer" onClick={() => navigate(`/productpage/${val._id}`)}>
-    <div className="max-w-64 max-h-64 min-w-24 min-h-24 overflow-hidden aspect-square relative">
+    <div className="max-w-64 max-h-64 min-w-24 min-h-48 overflow-hidden aspect-square relative">
       <img
         src={val.images[0].front}
         className="w-full h-full object-cover"

@@ -72,7 +72,7 @@ function Header({handleLoginopen, handleCartOpen}) {
             <li className="nav-li">HOME</li>
             <li className="nav-li">MEN</li>
             <li className="nav-li">WOMEN</li>
-            <li className="nav-li">SHOP</li>
+            <li className="nav-li"  onClick={()=>navigate("/shop/all")}>SHOP</li>
             <li className="nav-li">ABOUT</li>
             <li className="nav-li">BLOG</li>
       
