@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./Page/Home"
 import Login from "./Components/Login"
 import Cart from "./Components/Cart"
-import Shop from "./Page/shop"
+import Shop from "./Page/Shop"
 
 
 function App() {
@@ -28,9 +28,10 @@ function App() {
    {isCartOpen && <Cart handleCartOpen={handleCartOpen}/>}
     <Header handleLoginopen={handleLoginopen} handleCartOpen={handleCartOpen} /> 
     <Routes>
+    <Route path="/" element={<Home/>}/>
     <Route path="/productpage/:productID" element={<ProductPage/>} />
     <Route path="/shop/:type" element={<Shop/>} />
-    <Route path="/" element={<Home/>}/>
+  
     </Routes>
 
     <Footer/> 

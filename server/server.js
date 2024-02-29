@@ -11,7 +11,7 @@ dotenv.config()
 // rest object
 const app = express();
 // port number
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5800
 
 //enable cors to run client and server in same computer
 app.use(cors())

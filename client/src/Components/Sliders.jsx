@@ -59,7 +59,7 @@ function Sliders() {
         <div className=" absolute bottom-10 left-10 mobile:bottom-20 mobile:left-20 leading-9 text-white">
           <h1>Stylish shoes for</h1>
           <h1>Women</h1>
-          <button  onClick={()=>navigate("/shop/women shoes")} className="w-fit uppercase leading-6">
+          <button  onClick={()=>navigate("/shop/women")} className="w-fit uppercase leading-6">
             shop Now
             <hr className="border border-white" />
           </button>
@@ -75,7 +75,7 @@ function Sliders() {
       >
           <div className=" absolute bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
           <h1>Sport wear</h1>
-          <button  onClick={()=>navigate("/shop/sports shoes")} className="w-fit uppercase leading-6">
+          <button  onClick={()=>navigate("/shop/sports")} className="w-fit uppercase leading-6">
             shop Now
             <hr className="border border-white" />
           </button>
@@ -87,7 +87,7 @@ function Sliders() {
       >
         <div className=" absolute  bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
           <h1>Fashion Shoes</h1>
-          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/fashion shoes")}>
+          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/fashion")}>
             shop Now
             <hr className="border border-white" />
           </button>
@@ -104,7 +104,7 @@ function Sliders() {
         <div className=" absolute bottom-10 left-10 mobile:bottom-20 mobile:left-20 leading-9 text-white">
           <h1>Stylish shoes for</h1>
           <h1>Men</h1>
-          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/stylish shoes for man")}>
+          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/stylish")}>
             shop Now
             <hr className="border border-white" />
           </button>
@@ -120,7 +120,7 @@ function Sliders() {
       >
           <div className=" absolute   bottom-6 mobile:bottom-12 left-6 mobie:left-12leading-9 text-white">
           <h1>Men Shoes</h1>
-          <button className="w-fit uppercase leading-6" onClick={()=>navigate("/shop/mens shoes")}>
+          <button className="w-fit uppercase leading-6" onClick={()=>navigate("/shop/mens")}>
             shop Now
             <hr className="border border-white" />
           </button>
@@ -132,7 +132,7 @@ function Sliders() {
       >
         <div className=" absolute  bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
           <h1>Women Shoes</h1>
-          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/womens shoes")}>
+          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/womens")}>
             shop Now
             <hr className="border border-white" />
           </button>

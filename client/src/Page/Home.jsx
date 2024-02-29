@@ -10,6 +10,7 @@ import product from "../assets/home/product.jpg";
 import blogImage from "../assets/home/blog.jpg";
 import { useNavigate } from "react-router-dom";
 import useHomeData from "../hook/useHomeData";
+import ProductCard from "../Components/ProductCard";
 
 function Home() {
   const navigate = useNavigate();
@@ -153,23 +154,7 @@ function Home() {
               {!errors &&
                 currentProduct &&
                 fliteredData.map((val, ind) => (
-                  <div
-                    key={ind}
-                    className="mx-auto"
-                    onClick={() => navigate(`/productpage/${val._id}`)}
-                  >
-                    <div className="max-w-64 max-h-64 min-w-24 min-h-24 overflow-hidden aspect-square">
-                      <img
-                        src={val.images[0].front}
-                        className="w-full h-full object-cover"
-                        alt={val.homeList}
-                      />
-                    </div>
-                    <div className="w-full flex justify-between my-4 text-lg">
-                      <p className="truncate w-9/12">{val.title}</p>{" "}
-                      <span className="font-bold">${val.selling_price}</span>
-                    </div>
-                  </div>
+                 <ProductCard val={val}  key={ind} />
                 ))}
             </div>
           </section>
