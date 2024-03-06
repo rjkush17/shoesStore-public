@@ -1,6 +1,7 @@
 import { baseURL } from "../assets/baseURL";
 import { useState } from "react";
 import { useAuth } from "../Context/authContext";
+import { decode } from "../assets/decodeJWT";
 
 export const uselogin = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,10 +28,12 @@ export const uselogin = () => {
         setIsLoading(false);
         return;
       }
+      const userDATA = decode(data.token);
 
+      localStorage.setItem("userDetails", JSON.stringify(userDATA));
       setIsLoading(false);
       setErrors(null);
-      dispatch({ type: "LOGIN", payload: data });
+      dispatch({ type: "LOGIN", payload: userDATA });
     } catch (error) {
       console.log("error white fetching data ", error);
       setErrors(error.message || "an error occurred");
