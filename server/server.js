@@ -11,7 +11,7 @@ dotenv.config()
 // rest object
 const app = express();
 // port number
-const PORT = process.env.PORT || 5800
+const PORT = process.env.PORT || 5200
 
 //enable cors to run client and server in same computer
 app.use(cors())
@@ -31,4 +31,4 @@ app.use("/api",router)
 //Database Connection call
 connectDB()
 //Server start function
-app.listen(5500, ()=>console.log(`Server is running on port ${PORT}`.bgBlue.white))
+app.listen(PORT, ()=>console.log(`Server is running on port ${PORT}`.bgBlue.white))

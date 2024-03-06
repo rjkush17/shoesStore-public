@@ -6,7 +6,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaPinterest } from "react-icons/fa";
 import { Parallax } from "react-parallax";
 import home_single from "../assets/home/home_single.jpg";
-import product from "../assets/home/product.jpg";
 import blogImage from "../assets/home/blog.jpg";
 import { useNavigate } from "react-router-dom";
 import useHomeData from "../hook/useHomeData";
@@ -148,7 +147,7 @@ function Home() {
               </button>
             </p>
             <div className="grid gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-4 tablet:grid-cols-3">
-              {errors && <p>{errors.error}</p>}
+              {errors && <p>{errors}</p>}
               {!errors &&
                 currentProduct &&
                 fliteredData.map((val, ind) => (

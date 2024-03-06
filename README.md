@@ -12,3 +12,6 @@ react compoent open with last
 reviews images
 favicon image
 image not come in
+error fix of prodcut page
+shop button
+incorrect password button

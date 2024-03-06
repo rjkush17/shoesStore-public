@@ -31,7 +31,7 @@ function Header({handleLoginopen, handleCartOpen}) {
           </div>
           <p className="hidden tablet:block">
             <span className="font-[600]">Special Offer: </span>Free Shipping on
-            all the orders above $100
+            all the orders above $250
           </p>
           <div className="flex gap-3 text-2xl">
             <FaRegUser onClick={handleLoginopen} />
@@ -69,9 +69,9 @@ function Header({handleLoginopen, handleCartOpen}) {
             ) : (
               ""
             )}
-            <li className="nav-li">HOME</li>
-            <li className="nav-li">MEN</li>
-            <li className="nav-li">WOMEN</li>
+            <li className="nav-li" onClick={()=>navigate("/")}>HOME</li>
+            <li className="nav-li" onClick={()=>navigate("/shop/men")}>MEN</li>
+            <li className="nav-li" onClick={()=>navigate("/shop/women")}>WOMEN</li>
             <li className="nav-li"  onClick={()=>navigate("/shop/all")}>SHOP</li>
             <li className="nav-li">ABOUT</li>
             <li className="nav-li">BLOG</li>

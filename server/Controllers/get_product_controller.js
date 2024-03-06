@@ -62,7 +62,6 @@ export const get_shoplist = async (req, res) => {
     if (shopData.length === 0) {
       return res.status(404).json({ error: "data not found" });
     }
-    console.log(shopData);
     res.status(200).json({ homeProducts: shopData });
   } catch (error) {
     console.log(error);

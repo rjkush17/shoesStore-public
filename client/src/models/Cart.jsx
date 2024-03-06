@@ -15,6 +15,8 @@ function Cart({handleCartOpen}) {
     <div className='w-screen h-screen bg-white opacity-35 flex justify-center items-center top-0 z-50 fixed overflow-hidden'>
         <p>Cart Model</p>
         <button className='bg-black text-white' onClick={handleCartOpen}>close</button>
+
+        
     </div>
   
     </>

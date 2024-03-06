@@ -69,10 +69,11 @@ export const login_controller = async (req, res) => {
       return res.status(400).json({ error: "Email not registered" });
     }
     // campare password with stored password
-    const isPassWordCorrect = bcrypt.compare(
+    const isPassWordCorrect = await bcrypt.compare(
       login.password,
       isEmailRegistered.password
     );
+    console.log(isPassWordCorrect)
     // error if password is not match
     if (!isPassWordCorrect) {
       return res.status(400).json({ error: "Incorrect Password" });

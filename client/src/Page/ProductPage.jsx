@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import reviews1 from "../assets/reviews/review-item1.jpg";
-import reviews2 from "../assets/reviews/review-item2.jpg";
-import reviews3 from "../assets/reviews/review-item3.jpg";
 import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useListingData } from "../hook/useListingData";
@@ -12,6 +10,8 @@ function ProductPage() {
 
   useEffect(() => {
     fetchData(productID);
+      //scroll to top when open page
+  window.scrollTo(0, 0)
   }, []);
 
   console.log(listingData);
@@ -63,7 +63,7 @@ function ProductPage() {
       {errors && <p>{errors.error}</p>}
       {!errors && listingData && (
         <div>
-          <section className="w-screen justify-center items-center tablet:items-start flex gap-4 mobile:gap-8 mt-4 mobile:mt-12 tablet:mt-24 flex-col tablet:flex-row">
+          <section className="w-full justify-center items-center tablet:items-start flex gap-4 mobile:gap-8 mt-4 mobile:mt-12 tablet:mt-24 flex-col tablet:flex-row">
             {/* //image render code */}
             <div className="flex h-fit flex-col-reverse tablet:flex-row w-10/12 tablet:w-7/12 gap-2 mobile:gap-6">
       {/* Thumbnails */}
@@ -254,7 +254,7 @@ function ProductPage() {
                 </div>
               )}
               {currentScreen === "Reviews" && (
-                <div className="w-full flex justify-between flex-wrap">
+                <div className="w-full flex justify-between flex-wrap ">
                   {!errors &&
                     Array.isArray(listingData.reviews) &&
                     listingData.reviews.map((val, index) => (
@@ -281,11 +281,11 @@ function ProductPage() {
                 </div>
               )}
               {currentScreen === "Reviews" && (
-                <div className="w-7/12 mx-auto ">
-                  <h5 className="text-black text-center text-3xl">
+                <div className="w-full mobile:w-7/12 mx-auto  text-sm mobile:text-normal">
+                  <h5 className="text-black text-center text-xl mobile:text-3xl">
                     Add a review
                   </h5>
-                  <p className="text-center">
+                  <p className="text-center ">
                     Your email address will not be published. Required fields
                     are marked{" "}
                   </p>
@@ -295,7 +295,7 @@ function ProductPage() {
                         Your rating
                       </label>
                       <select
-                        className="w-8 h-8 mr-4 ml-8 border border-black"
+                        className=" mobile:w-8 h-8 mr-4 ml-8 border border-black"
                         id="stars"
                       >
                         <option value="1">1</option>
@@ -306,7 +306,7 @@ function ProductPage() {
                       </select>
                       <br />
                       <input
-                        className="my-5"
+                        className="my-5 w-full"
                         type="file"
                         accept="image/jpeg, image/png"
                       />

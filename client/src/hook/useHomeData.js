@@ -12,18 +12,20 @@ function useHomeData() {
       setIsLoading(true);
       const res = await fetch(`${baseURL}home/`);
 
+      const data = await res.json();
+
       if (!res.ok) {
         console.log("data not found");
-        setError(true);
+        setError(data.error);
         setIsLoading(false); 
         return;
       }
-      const data = await res.json();
+    
       setHomeList(data.homeProducts);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
-      setError(true);
+      setError("Unable to fetch Data");
       setIsLoading(false); 
     }
   };

@@ -104,7 +104,7 @@ function Sliders() {
         <div className=" absolute bottom-10 left-10 mobile:bottom-20 mobile:left-20 leading-9 text-white">
           <h1>Stylish shoes for</h1>
           <h1>Men</h1>
-          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/stylish")}>
+          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/men")}>
             shop Now
             <hr className="border border-white" />
           </button>
@@ -118,9 +118,9 @@ function Sliders() {
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden mb-[4%] relative"
         style={{ backgroundImage: `url(${card_image5})` }}
       >
-          <div className=" absolute   bottom-6 mobile:bottom-12 left-6 mobie:left-12leading-9 text-white">
+          <div className=" absolute   bottom-6 mobile:bottom-12 left-6 mobile:left-12 leading-9 text-white">
           <h1>Men Shoes</h1>
-          <button className="w-fit uppercase leading-6" onClick={()=>navigate("/shop/mens")}>
+          <button className="w-fit uppercase leading-6" onClick={()=>navigate("/shop/men")}>
             shop Now
             <hr className="border border-white" />
           </button>
@@ -130,9 +130,9 @@ function Sliders() {
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image6})` }}
       >
-        <div className=" absolute  bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
+        <div className=" absolute  bottom-6 mobile:bottom-12 left-6 mobile:left-12 leading-9 text-white">
           <h1>Women Shoes</h1>
-          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/womens")}>
+          <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/women")}>
             shop Now
             <hr className="border border-white" />
           </button>
