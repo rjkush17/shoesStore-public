@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import reviews1 from "../assets/reviews/review-item1.jpg";
+import reviews1 from "../images/reviews/review-item1.jpg";
 import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useListingData } from "../hook/useListingData";

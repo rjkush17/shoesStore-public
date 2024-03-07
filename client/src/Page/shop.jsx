@@ -60,7 +60,7 @@ function Shop() {
         <div className="w-screen overflow-x-hidden">
           <div className="bg-zinc-100 text-center py-8 mobile:py-16 my-10 w-full">
             <p className="text-4xl mobile:text-7xl mb-2 mobile:mb-6">SHOP</p>
-            <p className="text-xl">Shop &gt; {type}</p>
+            <p className="text-xl uppercase">Shop &gt; {type}</p>
           </div>
           <div className="flex flex-col mobile:flex-row">
             <section className=" w-screen mobile:w-10/12 grid gap-0 mobile:gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-3 tablet:grid-cols-3">

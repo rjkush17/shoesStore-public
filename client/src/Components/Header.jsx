@@ -4,13 +4,16 @@ import { FaInstagram, FaPinterest, FaYoutube, FaRegUser } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { IoCloseSharp } from "react-icons/io5";
-import logo from "../assets/img/logo.png";
+import logo from "../images/img/logo.png";
 import { useNavigate } from "react-router-dom";
+import {useAuth} from "../Context/authContext"
+import UserBox from "../assets/UserBox"
 
 
 function Header({handleLoginopen, handleCartOpen}) {
   
   const navigate = useNavigate();
+  const {userDetails} = useAuth();
 
   //function for open/close nav panel
   const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +36,9 @@ function Header({handleLoginopen, handleCartOpen}) {
             <span className="font-[600]">Special Offer: </span>Free Shipping on
             all the orders above $250
           </p>
-          <div className="flex gap-3 text-2xl">
-            <FaRegUser onClick={handleLoginopen} />
+          <div className="flex items-center	justify-between gap-3 text-2xl">
+           { !userDetails &&  <FaRegUser onClick={handleLoginopen} className=""/>}
+           { userDetails && <UserBox user={userDetails.username} />}
             <HiOutlineShoppingCart onClick={handleCartOpen} />
             <FiSearch />
           </div>

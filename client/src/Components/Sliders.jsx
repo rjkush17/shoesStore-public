@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import card_image1 from "../assets/sliderImg/card-image1.jpg";
-import card_image2 from "../assets/sliderImg/card-image2.jpg";
-import card_image3 from "../assets/sliderImg/card-image3.jpg";
-import card_image4 from "../assets/sliderImg/card-image4.jpg";
-import card_image5 from "../assets/sliderImg/card-image5.jpg";
-import card_image6 from "../assets/sliderImg/card-image6.jpg";
+import card_image1 from "../images/sliderImg/card-image1.jpg";
+import card_image2 from "../images/sliderImg/card-image2.jpg";
+import card_image3 from "../images/sliderImg/card-image3.jpg";
+import card_image4 from "../images/sliderImg/card-image4.jpg";
+import card_image5 from "../images/sliderImg/card-image5.jpg";
+import card_image6 from "../images/sliderImg/card-image6.jpg";
+
+
 import { useNavigate } from "react-router-dom";
 
 function Sliders() {

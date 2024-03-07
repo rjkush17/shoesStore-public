@@ -1,4 +1,4 @@
-import { useReducer, createContext, useContext } from "react";
+import { useReducer, createContext, useContext, useEffect } from "react";
 
 const authContext = createContext();
 
@@ -16,6 +16,12 @@ const authReducer = (state, action) => {
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { userDetails: null });
 
+  useEffect(() => {
+    const saveUSER = localStorage.getItem("userDetails");
+    if (saveUSER) {
+      dispatch({ type: "LOGIN", payload: JSON.parse(saveUSER) });
+    }
+  }, []);
   console.log("current User this : ", state);
 
   return (
