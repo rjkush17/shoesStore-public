@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { uselogin } from "../hook/uselogin";
+import { useSignup } from "../hook/useSignup";
 import { IoCloseSharp } from "react-icons/io5";
 
 function Login({ handleLoginopen }) {
@@ -9,7 +10,7 @@ function Login({ handleLoginopen }) {
     return () => {
       document.body.classList.remove("overflow-y-hidden");
     };
-  }, []);
+  },[]);
 
   const [isLoginOpen, setIsLoginOpen] = useState(true);
 
@@ -29,6 +30,27 @@ function Login({ handleLoginopen }) {
   const handlelogin = (e) => {
     e.preventDefault();
     fetchData(loginData);
+    handleLoginopen()
+  };
+
+  //sign up function
+  const { isSignLoading, signError, SignUp } = useSignup();
+  const [signUpData, setSignUpData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const handleSignUpForm = (e) => {
+    const { name, value } = e.target;
+    setSignUpData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    SignUp(signUpData);
+    handleLoginopen()
   };
 
   return (
@@ -93,15 +115,15 @@ function Login({ handleLoginopen }) {
               </div>
             </form>
           ) : (
-            <form onSubmit={handlelogin} className="px-8">
+            <form onSubmit={handleSignUp} className="px-8">
               <input
                 type="text"
                 id="username"
                 className="input px-4 mb-6"
                 name="username"
-                value={loginData.email}
+                value={signUpData.username}
                 placeholder="Create a username *"
-                onChange={(e) => handleLoginForm(e)}
+                onChange={(e) => handleSignUpForm(e)}
                 required
               />
               <input
@@ -109,9 +131,9 @@ function Login({ handleLoginopen }) {
                 id="email"
                 className="input px-4 mb-6"
                 name="email"
-                value={loginData.email}
-                placeholder="Enter Your Registered Mail *"
-                onChange={(e) => handleLoginForm(e)}
+                value={signUpData.email}
+                placeholder="Enter Your Mail *"
+                onChange={(e) => handleSignUpForm(e)}
                 required
               />
               <input
@@ -119,27 +141,24 @@ function Login({ handleLoginopen }) {
                 id="password"
                 className="input px-4 mb-6"
                 name="password"
-                value={loginData.password}
-                placeholder="Password *"
-                onChange={(e) => handleLoginForm(e)}
+                value={signUpData.password}
+                placeholder="Create Password *"
+                onChange={(e) => handleSignUpForm(e)}
                 required
               />
-              
-              <div className="flex justify-between text-gray-400 font-normal cursor-pointer">
-                <div>
-                  <input type="checkbox" id="radio" />
-                  <label htmlFor="radio" className="m-1">
-                    Remender ME
-                  </label>
-                </div>
-                <p> Forget Password ?</p>
+
+              <div className="text-gray-400 font-normal cursor-pointer">
+                <input type="checkbox" id="radio" />
+                <label htmlFor="radio" className="m-1">
+                  I agree with the terms and conditions.
+                </label>
               </div>
               <div className="h-14 my-6">
-                {errors && <p className="error">{errors}</p>}
+                {signError && <p className="error">{signError}</p>}
               </div>
               <hr />
               <div className="flex justify-center gap-2 items-center mt-3 mb-8">
-                {isLoading ? (
+                {isSignLoading ? (
                   <p className="button bg-red-500 text-white border border-gray-300">
                     Loading....
                   </p>
