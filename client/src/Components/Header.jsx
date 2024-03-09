@@ -10,7 +10,7 @@ import {useAuth} from "../Context/authContext"
 import UserBox from "../assets/UserBox"
 
 
-function Header({handleLoginopen, handleCartOpen}) {
+function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
   
   const navigate = useNavigate();
   const {userDetails} = useAuth();
@@ -38,7 +38,7 @@ function Header({handleLoginopen, handleCartOpen}) {
           </p>
           <div className="flex items-center	justify-between gap-3 text-2xl">
            { !userDetails &&  <FaRegUser onClick={handleLoginopen} className=""/>}
-           { userDetails && <UserBox user={userDetails.username} />}
+           { userDetails && <UserBox user={userDetails.username} handleProfileOpen={handleProfileOpen}/>}
             <HiOutlineShoppingCart onClick={handleCartOpen} />
             <FiSearch />
           </div>

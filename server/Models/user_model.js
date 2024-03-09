@@ -15,7 +15,7 @@ const zodUser = z.object({
   password: z
     .string({ required_error: "Password is required" })
     .trim()
-    .min(4, { message: "Password should have at least 4 characters" })
+    .min(6, { message: "Password should have at least 6 characters" })
 });
 
 // mongoDB Schema

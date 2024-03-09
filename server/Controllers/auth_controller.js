@@ -14,6 +14,12 @@ export const registration_controller = async (req, res) => {
     if (isTaken) {
       return res.status(400).json({ error: "Username already Taken" });
     }
+    if(req.body.username.length <= 4){
+      return res.status(400).json({ error: "Name should be at least 4 letters long" })
+    }
+    if(req.body.password.length <= 6){
+      return res.status(400).json({ error: "password should have atlest 6 letter" })
+    }
     // create function for hashing the password
     // salt value means how strong your password hashing be
     const salt = 10;

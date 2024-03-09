@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { uselogin } from "../hook/uselogin";
 import { useSignup } from "../hook/useSignup";
 import { IoCloseSharp } from "react-icons/io5";
+import { useAuth } from "../Context/authContext";
 
 function Login({ handleLoginopen }) {
   useEffect(() => {
@@ -10,9 +11,10 @@ function Login({ handleLoginopen }) {
     return () => {
       document.body.classList.remove("overflow-y-hidden");
     };
-  },[]);
+  }, []);
 
   const [isLoginOpen, setIsLoginOpen] = useState(true);
+ const  {userDetails} = useAuth()
 
   //login functions
   const { isLoading, errors, fetchData } = uselogin();
@@ -30,11 +32,11 @@ function Login({ handleLoginopen }) {
   const handlelogin = (e) => {
     e.preventDefault();
     fetchData(loginData);
-    handleLoginopen()
   };
 
   //sign up function
   const { isSignLoading, signError, SignUp } = useSignup();
+  // const [SignUpValid, setSignUpValid] = useState(false);
   const [signUpData, setSignUpData] = useState({
     username: "",
     email: "",
@@ -49,15 +51,18 @@ function Login({ handleLoginopen }) {
   };
   const handleSignUp = (e) => {
     e.preventDefault();
-    SignUp(signUpData);
-    handleLoginopen()
+      SignUp(signUpData);
   };
+
+  if(userDetails){
+    handleLoginopen()
+  }
 
   return (
     <>
       <div className="w-screen h-screen bg-white-400 flex justify-center items-center top-0 z-50 fixed overflow-hidden bg-[rgba(0,0,0,0.3)]">
-        <section className="bg-white p-4 max-w-[34%] rounded-md">
-          <p className="text-white w-fit ml-auto" onClick={handleLoginopen}>
+        <section className="bg-white h-screen mobile:h-auto p-4 max-w-full tablet:min-w-56 rounded-md">
+          <p className="text-white w-fit mt-16 mobile:mt-auto ml-auto" onClick={handleLoginopen}>
             <IoCloseSharp className="text-black text-3xl" />
           </p>
           <p className="text-3xl pb-6 text-center">
@@ -86,7 +91,7 @@ function Login({ handleLoginopen }) {
                 onChange={(e) => handleLoginForm(e)}
                 required
               />
-              <div className="flex justify-between text-gray-400 font-normal cursor-pointer">
+              <div className="flex justify-between text-gray-400 text-sm mobile:font-normal cursor-pointer">
                 <div>
                   <input type="checkbox" id="radio" />
                   <label htmlFor="radio" className="m-1">
@@ -147,7 +152,7 @@ function Login({ handleLoginopen }) {
                 required
               />
 
-              <div className="text-gray-400 font-normal cursor-pointer">
+              <div className="text-gray-400 text-sm mobile:font-normal cursor-pointer">
                 <input type="checkbox" id="radio" />
                 <label htmlFor="radio" className="m-1">
                   I agree with the terms and conditions.
