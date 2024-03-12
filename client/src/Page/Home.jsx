@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "../Components/Sliders";
 import { RiShoppingBagLine } from "react-icons/ri";
 import { FaInstagram } from "react-icons/fa6";
+
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaPinterest } from "react-icons/fa";
 import { Parallax } from "react-parallax";

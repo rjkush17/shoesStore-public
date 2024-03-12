@@ -62,15 +62,15 @@ function Shop() {
             <p className="text-4xl mobile:text-7xl mb-2 mobile:mb-6">SHOP</p>
             <p className="text-xl uppercase">Shop &gt; {type}</p>
           </div>
-          <div className="flex flex-col mobile:flex-row">
-            <section className=" w-screen mobile:w-10/12 grid gap-0 mobile:gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-3 tablet:grid-cols-3">
+          <div className="flex flex-col-reverse tablet:flex-row w-full">
+            <section className="mx-auto w-full mobile:w-10/12 grid gap-0 mobile:gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-3 tablet:grid-cols-3">
               {sorted.length > 0 ? (
                 sorted.map((val, ind) => <ProductCard key={ind} val={val} />)
               ) : (
                 <p>No products found within the specified price/Category.</p>
               )}
             </section>
-            <section className="leading-8 w-full mobile:w-2/12 pl-6 mobile:ml-0 text-lg text-gray-500">
+            <section className="leading-8 w-full tablet:w-[20%] pl-6 mobile:ml-0 text-lg text-gray-500">
               <div className="mt-8">
                 <h2 className="font-bold underline mb-3 text-black">Categories</h2>
                 <p className="" onClick={() => navigate("/shop/all")}>All type shoes</p>

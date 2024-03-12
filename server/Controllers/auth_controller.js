@@ -43,7 +43,7 @@ export const registration_controller = async (req, res) => {
         //jwt key
         const jwt_key = process.env.JWTKEY;
         // create a jwt token using this function
-        const genrateToken = jwt.sign(payload, jwt_key, { expiresIn: "12h" });
+        const genrateToken = jwt.sign(payload, jwt_key, { expiresIn: "2h" });
         //retrun the status of data is saved in DB
         res
           .status(200)

@@ -14,7 +14,6 @@ function Login({ handleLoginopen }) {
   }, []);
 
   const [isLoginOpen, setIsLoginOpen] = useState(true);
- const  {userDetails} = useAuth()
 
   //login functions
   const { isLoading, errors, fetchData } = uselogin();
@@ -32,10 +31,12 @@ function Login({ handleLoginopen }) {
   const handlelogin = (e) => {
     e.preventDefault();
     fetchData(loginData);
+    handleLoginopen();
   };
 
   //sign up function
   const { isSignLoading, signError, SignUp } = useSignup();
+  const [isChecked, setIsChecked] = useState(false);
   // const [SignUpValid, setSignUpValid] = useState(false);
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -51,18 +52,26 @@ function Login({ handleLoginopen }) {
   };
   const handleSignUp = (e) => {
     e.preventDefault();
+    if (isChecked) {
       SignUp(signUpData);
+      handleLoginopen();
+    } else {
+      alert("Checked the Terms & Conditions");
+    }
   };
 
-  if(userDetails){
-    handleLoginopen()
-  }
+
+
+
 
   return (
     <>
       <div className="w-screen h-screen bg-white-400 flex justify-center items-center top-0 z-50 fixed overflow-hidden bg-[rgba(0,0,0,0.3)]">
         <section className="bg-white h-screen mobile:h-auto p-4 max-w-full tablet:min-w-56 rounded-md">
-          <p className="text-white w-fit mt-16 mobile:mt-auto ml-auto" onClick={handleLoginopen}>
+          <p
+            className="text-white w-fit mt-16 mobile:mt-auto ml-auto"
+            onClick={handleLoginopen}
+          >
             <IoCloseSharp className="text-black text-3xl" />
           </p>
           <p className="text-3xl pb-6 text-center">
@@ -153,7 +162,13 @@ function Login({ handleLoginopen }) {
               />
 
               <div className="text-gray-400 text-sm mobile:font-normal cursor-pointer">
-                <input type="checkbox" id="radio" />
+                <input
+                  type="checkbox"
+                  onChange={() => {
+                    setIsChecked(!isChecked);
+                  }}
+                  id="radio"
+                />
                 <label htmlFor="radio" className="m-1">
                   I agree with the terms and conditions.
                 </label>

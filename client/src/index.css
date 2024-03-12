@@ -58,7 +58,7 @@ h5{
 
     .nav-side-panel.open {
         right: 0;
-        @apply flex
+        @apply flex overflow-y-auto
     }
 }
 @media (max-width: 450px) {

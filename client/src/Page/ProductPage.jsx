@@ -3,10 +3,13 @@ import reviews1 from "../images/reviews/review-item1.jpg";
 import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useListingData } from "../hook/useListingData";
+import { useDispatch } from 'react-redux';
+import {addCart} from "../store/slices/cart"
 
 function ProductPage() {
   const { productID } = useParams();
   const { isLoading, errors, listingData, fetchData } = useListingData();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchData(productID);
@@ -15,6 +18,7 @@ function ProductPage() {
   }, []);
 
   console.log(listingData);
+
 
   // function for increase and decreace purchase quantity
   const [quantity, SetQuantity] = useState(1);
@@ -27,6 +31,8 @@ function ProductPage() {
       SetQuantity(quantity - 1);
     }
   };
+
+
 
   // function for main image change when click others img
  
@@ -55,6 +61,18 @@ function ProductPage() {
     e.preventDefault();
     alert("Review Submiited for checking % it will show after QC progess");
   };
+
+  const handleCart = () =>{
+
+    const productCart = {
+      _id : listingData._id,
+      title : listingData.title,
+      image : listingData.images[0].front,
+      price : listingData.selling_price,
+      pcs : quantity
+    }
+    dispatch(addCart(productCart))
+  }
 
 
   return (
@@ -142,7 +160,7 @@ function ProductPage() {
                 <button className="button bg-black text-white mr-4">
                   BUY NOW
                 </button>
-                <button className="button   border border-grey-500 mb-6">
+                <button className="button   border border-grey-500 mb-6" onClick={handleCart}>
                   ADD TO CART
                 </button>
                 <div className="flex items-start  gap-5 mb-4">

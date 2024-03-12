@@ -19,7 +19,6 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
   const [isOpen, setIsOpen] = useState(false);
   const handleNav = () => {
     setIsOpen(!isOpen);
-    console.log("function working");
   };
 
   return (
@@ -56,7 +55,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
               <FaBarsStaggered />
             </div>
           </div>
-          <ul className={`nav-side-panel ${isOpen ? "open" : ""}`}>
+          <ul className={`nav-side-panel  ${isOpen ? "open" : ""}`}>
   
            {isOpen ? (
               <li className="nav-li">

@@ -75,7 +75,7 @@ function Sliders() {
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden mb-[4%] relative"
         style={{ backgroundImage: `url(${card_image2})` }}
       >
-          <div className=" absolute bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
+          <div className="absolute bottom-6 mobile:bottom-12 left-6 mobile:left-12 leading-9 text-white">
           <h1>Sport wear</h1>
           <button  onClick={()=>navigate("/shop/sports")} className="w-fit uppercase leading-6">
             shop Now
@@ -87,7 +87,7 @@ function Sliders() {
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image3})` }}
       >
-        <div className=" absolute  bottom-6 mobile:bottom-12 left-6 mobie:left-12 leading-9 text-white">
+        <div className="absolute bottom-6 mobile:bottom-12 left-6 mobile:left-12 leading-9 text-white">
           <h1>Fashion Shoes</h1>
           <button className="w-fit uppercase leading-6"  onClick={()=>navigate("/shop/fashion")}>
             shop Now
