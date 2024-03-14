@@ -9,6 +9,7 @@ import Cart from "./models/Cart";
 import Shop from "./Page/Shop";
 import NotFoundPage from "./Page/NotFoundPage";
 import Profile from "./models/Profile";
+import About from "./Page/About"
 
 function App() {
   const [isLoginOpen, SetIsLoginOpen] = useState(false);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/productpage/:productID" element={<ProductPage />} />
         <Route path="/shop/:type" element={<Shop />} />
+        <Route path='/about' element={<About/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

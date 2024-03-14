@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { uselogin } from "../hook/uselogin";
 import { useSignup } from "../hook/useSignup";
 import { IoCloseSharp } from "react-icons/io5";
-import { useAuth } from "../Context/authContext";
+
 
 function Login({ handleLoginopen }) {
   useEffect(() => {

@@ -7,4 +7,4 @@ preloader & error on component
 reviews images
 favicon image
 image not come in
-sub total
+login and registration error
