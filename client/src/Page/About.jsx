@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import banner from "../images/about/banner.jpg";
 import { IoIosArrowDown } from "react-icons/io";
 import ProfileCard from "../Components/ProfileCard";
@@ -12,6 +12,10 @@ import client1 from "../images/about/client1.jpg"
 import client2 from "../images/about/client2.jpg"
 
 function About() {
+  useEffect(() => {
+      //scroll to top when open page
+  window.scrollTo(0, 0)
+  }, []);
   // function for accordion
   const [currentAccordion, setCurrentAccordion] = useState(null);
   const handleAccordion = (para) => {
@@ -36,19 +40,19 @@ function About() {
   ]
 
   return (
-    <section className="w-full leading-7">
-      <h1 className="text-8xl w-8/12 mx-auto mt-16 mb-4">
+    <section className="w-full mobile:leading-7">
+      <h1 className="text-4xl mobile:text-6xl tablet:text-8xl w-9/12 mobile:w-8/12 mx-auto mt-8 mobile:mt-16 mb-4">
         About Stylish Shoes
       </h1>
-      <p className="text-[29px] text-gray-500 font-normal leading-10 mx-auto w-8/12">
+      <p className="text-lg mobile:text-2xl tablet:text-[29px] text-gray-500 font-normal mobile:leading-10 mx-auto w-9/12 mobile:w-8/12">
         Happy feet make for happy campers. And runners, and hikers, and
         paddlers, and… you get the idea.
       </p>
-      <img src={banner} className="w-100 my-16" alt="banner image" />
+      <img src={banner} className="w-100 my-8 mobile:my-16" alt="banner image" />
 
       {/* Arrcoding section */}
-      <article className="w-10/12 mx-auto flex gap-10 tracking-wide">
-        <div className="w-6/12">
+      <article className="w-10/12 mx-auto flex flex-col tablet:flex-row mobile:gap-10 tracking-wide">
+        <div className="w-full tablet:w-6/12">
           <h1 className="my-3 text-5xl">About Us</h1>
           <p className="text-gray-500 w-10/12">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
@@ -128,7 +132,7 @@ function About() {
             </p>
           </div>
         </div>
-        <div className="w-6/12">
+        <div className="w-full tablet:w-6/12">
           <h1 className="my-3 text-5xl">Who we are ?</h1>
           <p className="text-gray-500">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -136,7 +140,7 @@ function About() {
             ever since the 1500s, when an unknown printer took a galley. Lorem
             Ipsum is simply dummy text of the printing and typesetting industry.
           </p>
-          <div className="flex">
+          <div className="flex flex-col gap-10 tablet:flex-row">
             <div className="border border-gray-400 py-10 px-16 my-4">
               <h2 className="text-2xl font-bold">Our Vision</h2>
               <ul className="text-gray-400 leading-7 list-disc list-outside">
@@ -146,7 +150,7 @@ function About() {
                 <li>Egestas sit amet lorem</li>
               </ul>
             </div>
-            <div className="border border-gray-400 py-10 px-16 m-4">
+            <div className="border border-gray-400 py-10 px-16 my-4">
               <h2 className="text-2xl font-bold">Our Mission</h2>
               <ul className="text-gray-400 leading-7 list-disc list-outside	">
                 <li className="">Maecenas sed diam eget</li>
@@ -161,15 +165,15 @@ function About() {
 
       {/* Team Memebr Section */}
       <article>
-        <h1 className="text-center mt-20 mb-4 text-3xl mobile:text-5xl font-extrabold">
+        <h1 className="text-center mt-10 mobile:mt-20 mb-4 text-3xl mobile:text-5xl font-extrabold">
           Meet Our Team
         </h1>
-        <p className="text-center w-6/12 mx-auto text-gray-500">
+        <p className="mobile:text-center w-10/12 tablet:w-6/12 mx-auto text-gray-500">
           Our Team is dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industry’s standard dummy text ever an unknown
           printer took a galley
         </p>
-        <div className="flex w-full text-center gap-5 px-8 my-8">
+        <div className="grid mobile:grid-cols-2 tablet:grid-cols-4  w-full text-center gap-5 px-8 my-8">
          { memberData.map((val, ind)=>(
           <div key={ind}>
             <ProfileCard  val={val} />
@@ -180,7 +184,7 @@ function About() {
 
       {/* testimony section */}
       <h1 className="mt-32 text-5xl mx-auto w-10/12 text-center">What Our Client Says</h1>
-      <div className="flex mb-48 w-10/12 gap-16 mx-auto">
+      <div className="flex flex-col tablet:flex-row mobile:mb-48 w-10/12 gap-6 tablet:gap-16 mx-auto">
       {ClientSaysData.map((val,ind)=>(
         <div key={ind}>
           <ClientSays val={val}/>

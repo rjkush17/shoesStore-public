@@ -41,7 +41,7 @@ function App() {
         <Route path="/productpage/:productID" element={<ProductPage />} />
         <Route path="/shop/:type" element={<Shop />} />
         <Route path='/about' element={<About/>} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </>

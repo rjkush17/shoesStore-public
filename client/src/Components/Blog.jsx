@@ -29,7 +29,7 @@ function Blog() {
 
   return (
     <section className="text-center w-10/12 mt-6 mobile:mt-auto mx-auto">
-      <p className="my-20 text-3xl mobile:text-5xl font-extrabold text-center">
+      <p className="my-10 mobile:my-20 text-3xl mobile:text-5xl font-extrabold text-center">
         Latest Post
       </p>
       <div className="grid gap-8 grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-3">
