@@ -13,6 +13,7 @@ function Login({ handleLoginopen }) {
     };
   }, []);
 
+
   const [isLoginOpen, setIsLoginOpen] = useState(true);
 
   //login functions
@@ -28,10 +29,12 @@ function Login({ handleLoginopen }) {
       [name]: value,
     }));
   };
-  const handlelogin = (e) => {
+  const handlelogin =async (e) => {
     e.preventDefault();
-    fetchData(loginData);
-    handleLoginopen();
+   const success =await fetchData(loginData);
+     if(success){
+      handleLoginopen()
+     }
   };
 
   //sign up function
@@ -50,13 +53,16 @@ function Login({ handleLoginopen }) {
       [name]: value,
     }));
   };
-  const handleSignUp = (e) => {
+  const handleSignUp = async(e) => {
     e.preventDefault();
-    if (isChecked) {
-      SignUp(signUpData);
+    if(!isChecked){
+      alert("Checked the Terms & Conditions")
+      return
+    }
+
+    const success = await SignUp(signUpData)
+    if(success){
       handleLoginopen();
-    } else {
-      alert("Checked the Terms & Conditions");
     }
   };
 

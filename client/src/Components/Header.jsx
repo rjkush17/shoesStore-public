@@ -77,6 +77,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
             <li className="nav-li" onClick={()=>navigate("/shop/women")}>WOMEN</li>
             <li className="nav-li"  onClick={()=>navigate("/shop/all")}>SHOP</li>
             <li className="nav-li"  onClick={()=>navigate("/about")}>ABOUT</li>
+            <li className="nav-li"  onClick={()=>navigate("/viewCart")}>purch</li>
             <li className="nav-li">BLOG</li>
       
           </ul>

@@ -26,19 +26,21 @@ export const useSignup = () => {
       if (!res.ok) {
         setSignError(data.error);
         SetIsSignLoading(false);
-        return;
+        return false;
       }
 
       setSignError(null);
       SetIsSignLoading(false);
-
       const userDATA = decode(data.token);
       localStorage.setItem("userDetails", JSON.stringify(userDATA));
       dispatch({ type: "LOGIN", payload: userDATA });
+      return true
+
     } catch (error) {
       console.log("error white fetching data ", error);
       setSignError(error.message || "an error occurred");
       SetIsSignLoading(false);
+      return false
     }
   };
   return { isSignLoading, signError, SignUp };

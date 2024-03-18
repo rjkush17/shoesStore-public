@@ -31,10 +31,10 @@ function ProductCard({ val }) {
 
       <div className=" absolute top-full w-full h-full  flex justify-center gap-4 pt-36 group-hover:top-0 transition-all duration-1000 ">
 
-       <div className="bg-white w-14 h-14 rounded-full flex justify-center items-center shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity delay-500 duration-500"> 
+       <div className="bg-white w-14 h-14 rounded-full flex justify-center items-center shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity delay-500 duration-500 active:scale-95"> 
         <AiOutlineShopping className="text-3xl"  onClick={() => navigate(`/productpage/${val._id}`)} />
         </div>
-        <div onClick={hanndleAddCart} className="bg-white w-14 h-14 rounded-full flex justify-center items-center shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity delay-500 duration-500">
+        <div onClick={hanndleAddCart} className="bg-white w-14 h-14 rounded-full flex justify-center items-center shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity delay-500 duration-500 active:scale-95">
         <FaCartPlus  className="text-3xl"/>
         </div>
       </div>

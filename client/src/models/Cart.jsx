@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
+
 import { useSelector, useDispatch } from "react-redux";
 import { deleteCart, addQun, minusQun } from "../store/slices/cart";
 import emptyCart from "../images/GIF/emptyCart.gif";
@@ -48,7 +49,7 @@ function Cart({ handleCartOpen }) {
                     </div>
                     <div className="w-full pr-3">
                       <div className="flex items-center justify-between">
-                        <p className="font-medium	">{val.title} </p>
+                        <p className="font-medium" onClick={()=>navigate("/")} >{val.title} </p>
                         <div onClick={() => dispatch(deleteCart(val._id))}>
                           <IoCloseSharp className="text-black text-2xl ml-auto" />
                         </div>

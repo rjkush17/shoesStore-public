@@ -26,7 +26,7 @@ export const uselogin = () => {
       if (!res.ok) {
         setErrors(data.error || "an error occurred");
         setIsLoading(false);
-        return;
+        return false;
       }
       const userDATA = decode(data.token);
 
@@ -34,10 +34,13 @@ export const uselogin = () => {
       setIsLoading(false);
       setErrors(null);
       dispatch({ type: "LOGIN", payload: userDATA });
+      return true
+      
     } catch (error) {
       console.log("error white fetching data ", error);
       setErrors(error.message || "an error occurred");
       setIsLoading(false);
+      return false
     }
   };
 

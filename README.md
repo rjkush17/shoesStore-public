@@ -7,4 +7,8 @@ preloader & error on component
 reviews images
 favicon image
 image not come in
-login and registration error
+
+blog page
+blog search page 
+search bar
+purchase page
