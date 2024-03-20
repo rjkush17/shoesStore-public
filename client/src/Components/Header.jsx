@@ -86,7 +86,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
 
       <p className="block text-xs mobile:text-normal my-2 tablet:hidden text-center">
         <span className="font-[600]">Special Offer: </span>Free Shipping on all
-        the orders above $100
+        the orders above $250
       </p>
     </>
   );

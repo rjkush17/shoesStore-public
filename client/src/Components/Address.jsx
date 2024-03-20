@@ -1,45 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-function Address() {
+function Address({handleOrder, handleStage}){
+
+  const [formData, setFormData] = useState({
+    houseNo: '',
+    addressLine1: '',
+    city: '',
+    pinCode: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleOrder("address ",formData)
+    handleStage(3)
+  };
+
   return (
-    <section className='w-full'>
-       <form className="px-8 w-10/12">
-              <input
-                type="text"
-                className="input px-4 mb-6"
-                name="House No."
-        
-                placeholder="Enter House No. *"
-                required
-              />
-              <input
-                type="line no.1 Address"
-                className="input px-4 mb-6"
-                name="line no.1 Address"
-     
-                placeholder="Enter Your address*"
-                required
-              />
-              <input
-                type="text"
-                className="input px-4 mb-6"
-                name="City"
-      
-                placeholder="Enter Your City *"
-                required
-              />
-               <input
-                type="text"
-                className="input px-4 mb-6"
-                name="pin"
-      
-                placeholder="Pin Code*"
-                required
-              />
-              <button className='button bg-red-400 text-white'>Add Address</button>
-            </form>
+    <section className='w-10-12'> 
+      <div className='bg-white py-6  text-center text-2xl font-medium '>Fill Delivery Address Details</div>
+      <form className="px-8 mx-auto  bg-white" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="input px-4 mb-6"
+          name="houseNo"
+          placeholder="Enter House No. *"
+          value={formData.houseNo}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text" // Changed type to "text" for address line
+          className="input px-4 mb-6"
+          name="addressLine1"
+          placeholder="Enter Your Address *"
+          value={formData.addressLine1}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          className="input px-4 mb-6"
+          name="city"
+          placeholder="Enter Your City *"
+          value={formData.city}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          className="input px-4 mb-6"
+          name="pinCode"
+          placeholder="Pin Code *"
+          value={formData.pinCode}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit" className='button bg-red-400 text-white mb-6'>Add Address</button>
+      </form>
     </section>
-  )
+  );
 }
 
-export default Address
+export default Address;
