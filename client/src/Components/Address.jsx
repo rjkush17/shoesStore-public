@@ -25,7 +25,7 @@ function Address({handleOrder, handleStage}){
 
   return (
     <section className='w-10-12'> 
-      <div className='bg-white py-6  text-center text-2xl font-medium '>Fill Delivery Address Details</div>
+      <div className='bg-white py-6  text-center text-lg mobile:text-2xl font-medium '>Fill Delivery Address Details</div>
       <form className="px-8 mx-auto  bg-white" onSubmit={handleSubmit}>
         <input
           type="text"

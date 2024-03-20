@@ -23,7 +23,7 @@ function Purchase() {
   };
 
   // function for component stage
-  const [stage, setStage] = useState(1);
+  const [stage, setStage] = useState("done");
   const handleStage = (n) => {
     setStage(n);
   };
@@ -65,36 +65,30 @@ function Purchase() {
       {/* Code in cart is empty */}
       {isLoaded() === false && (
         <section className="w-full text-center bg-white py-10">
-          <p className="text-4xl font-semibold">Your Cart is empty</p>
+          <p className="text-xl mobile:text-2xl tablet:text-4xl font-semibold">Your Cart is empty</p>
 
-          <div className="w-[450px] mx-auto">
+          <div className="w-64 mobile:w-96 tablet:w-[450px] mx-auto">
             <img
               src={emptyCart}
               alt="Order Img"
               className="w-full object-cover"
             />
           </div>
-          <p className="text-2xl mb-6">
+          <p className="mobile:text-2xl mb-6 px-4">
             "Looks like you haven’t added anything to your cart yet."
           </p>
           <div className="flex gap-4 justify-center">
             <button
               className="button bg-red-400 text-white"
-              onClick={() => navigate("/shop/men")}
+              onClick={() => navigate("/")}
             >
-              Men Shoes
-            </button>
-            <button
-              className="button bg-red-400 text-white"
-              onClick={() => navigate("/shop/women")}
-            >
-              Women Shoes
+              Go Home
             </button>
             <button
               className="button bg-red-400 text-white"
               onClick={() => navigate("/shop/all")}
             >
-              Shop
+              Shop More
             </button>
           </div>
         </section>
@@ -102,15 +96,15 @@ function Purchase() {
 
       {isLoaded() === true && stage === "done" && (
         <section className="w-full text-center bg-white py-10">
-          <p className="text-4xl font-semibold">Thanks for Purchase💖 </p>
-          <div className="w-[450px] mx-auto">
+          <p className="text-xl mobile:text-2xl tablet:text-4xl font-semibold">Thanks for Purchase💖 </p>
+          <div className="w-64 mobile:w-96 tablet:w-[450px] mx-auto">
             <img
               src={orderIMG}
               alt="Order Img"
               className="w-full object-cover"
             />
           </div>
-          <p className="text-2xl mb-6">
+          <p className="mobile:text-2xl mb-6">
             "Your order will be delivered in a week."
           </p>
           <div className="flex gap-4 justify-center">

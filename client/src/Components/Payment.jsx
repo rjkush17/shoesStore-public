@@ -36,6 +36,7 @@ function Payment({handleOrder, handleStage}){
           required
         />
         <input 
+          type="number" 
           className='input mb-6' 
           placeholder='Card Number'
           name="cardNumber"
@@ -43,7 +44,7 @@ function Payment({handleOrder, handleStage}){
           onChange={handleChange}
           required
         />
-        <div className='flex w-4/12 gap-10'>
+        <div className='flex mobile:w-4/12 gap-10'>
             <input 
               type="number" 
               className="input mb-6 text-center" 
