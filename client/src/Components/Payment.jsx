@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { clearCart } from "../store/slices/cart"
+import { useDispatch } from "react-redux";
+
 
 function Payment({handleOrder, handleStage}){
 
+  const dispatch = useDispatch();
   const [cardDetails, setCardDetails] = useState({
     nameOnCard: '',
     cardNumber: '',
@@ -20,6 +24,7 @@ function Payment({handleOrder, handleStage}){
   const handleSubmit = (e) => {
     e.preventDefault(); 
     handleOrder("Payment",cardDetails)
+    dispatch(clearCart())
     handleStage("done")
   };
 

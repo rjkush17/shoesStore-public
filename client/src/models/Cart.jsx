@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteCart, addQun, minusQun } from "../store/slices/cart";
 import emptyCart from "../images/GIF/emptyCart.gif";
@@ -18,6 +18,12 @@ function Cart({ handleCartOpen }) {
   const cartList = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const sub = subTotal(cartList)
+  const navigate = useNavigate();
+
+  const handleBuy = () =>{
+    handleCartOpen()
+    navigate("/ViewCart")
+  }
 
   return (
     <>
@@ -94,7 +100,7 @@ function Cart({ handleCartOpen }) {
           {cartList.length <= 0 ?  <p className="button text-white bg-gray-500 my-6 mx-auto w-fit" onClick={()=>alert("Your cart is empty. Please add products before checking out.")}>
             Purchase
           </p> :
-           <p className="button text-white bg-red-500 my-6 mx-auto w-fit">
+           <p className="button text-white bg-red-500 my-6 mx-auto w-fit" onClick={handleBuy}>
            Purchase
          </p>
           }

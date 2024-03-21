@@ -5,11 +5,13 @@ import { useParams } from "react-router-dom";
 import { useListingData } from "../hook/useListingData";
 import { useDispatch } from 'react-redux';
 import {addCart} from "../store/slices/cart"
+import { useNavigate } from "react-router-dom";
 
 function ProductPage() {
   const { productID } = useParams();
   const { isLoading, errors, listingData, fetchData } = useListingData();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData(productID);
@@ -72,6 +74,11 @@ function ProductPage() {
       pcs : quantity
     }
     dispatch(addCart(productCart))
+  }
+
+  const handleBuy = () =>{
+    handleCart();
+    navigate("/viewCart")
   }
 
 
@@ -157,7 +164,7 @@ function ProductPage() {
                 </button>
               </div>
               <div className="">
-                <button className="button bg-black text-white mr-4">
+                <button className="button bg-black text-white mr-4" onClick={handleBuy}>
                   BUY NOW
                 </button>
                 <button className="button   border border-grey-500 mb-6" onClick={handleCart}>

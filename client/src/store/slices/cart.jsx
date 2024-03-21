@@ -2,20 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: [{
-    _id : "sdsdsdsdssdsds",
-    title : "mens soers for offcie ",
-    image : "https://res.cloudinary.com/dq8ybh10f/image/upload/v1709003069/ShoesListing/new1/pvbgel3fulelfjdmaykq.jpg",
-    price : 339,
-    pcs : 2
-  },
-{
-  _id : "sdsdsdsdssdsds",
-  title : "mens soers for offcie ",
-  image : "https://res.cloudinary.com/dq8ybh10f/image/upload/v1709003072/ShoesListing/new1/witpr2ppetjdkerir1h3.jpg",
-  price : 339,
-  pcs : 2
-}],
+  initialState: [],
   reducers: {
     // reducer for add items in cart
     addCart: (state, action) => {
@@ -28,7 +15,7 @@ const cartSlice = createSlice({
     },
     //reducer for clear cart
     clearCart: (state, action) => {
-      state = [];
+      return state = [];
     },
     //reducer for delete one item in cart
     deleteCart: (state, action) => {

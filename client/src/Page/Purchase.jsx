@@ -7,12 +7,15 @@ import Payment from "../Components/Payment";
 import { subTotal } from "../assets/subtotal";
 import orderIMG from "../images/purchase/order.jpg";
 import emptyCart from "../images/GIF/emptyCart.gif";
+import reqLogin from "../images/purchase/reqLogin.jpg";
 import { useNavigate } from "react-router-dom";
 
-function Purchase() {
-  const navigate = useNavigate();
 
+function Purchase({ handleLoginopen }) {
+  const navigate = useNavigate();
+  const { userDetails } = useAuth();
   const cartList = useSelector((state) => state.cart);
+ 
 
   const isLoaded = () => {
     if (cartList && cartList.length > 0) {
@@ -23,7 +26,7 @@ function Purchase() {
   };
 
   // function for component stage
-  const [stage, setStage] = useState("done");
+  const [stage, setStage] = useState(1);
   const handleStage = (n) => {
     setStage(n);
   };
@@ -52,20 +55,51 @@ function Purchase() {
   return (
     <section className="bg-gray-100 py-12 px-6 tablet:px-16 flex flex-col-reverse mobile:flex-row">
       {/* code of cart is filled */}
-      {isLoaded() === true && stage === 1 && (
+
+      {userDetails && isLoaded() === true  && stage === 1 && (
         <CheckoutCart handleOrder={handleOrder} handleStage={handleStage} />
       )}
-      {isLoaded() === true && stage === 2 && (
+      {userDetails && isLoaded() === true && stage === 2 && (
         <Address handleOrder={handleOrder} handleStage={handleStage} />
       )}
-      {isLoaded() === true && stage === 3 && (
+      {userDetails && isLoaded() === true && stage === 3 && (
         <Payment handleOrder={handleOrder} handleStage={handleStage} />
       )}
 
-      {/* Code in cart is empty */}
-      {isLoaded() === false && (
+        {/* Screen if user login */}
+      {!userDetails && (
         <section className="w-full text-center bg-white py-10">
-          <p className="text-xl mobile:text-2xl tablet:text-4xl font-semibold">Your Cart is empty</p>
+          <p className="text-xl mobile:text-2xl tablet:text-4xl font-semibold">
+            Login to Continues Shop
+          </p>
+
+          <div className="w-64 mobile:w-96 tablet:w-[450px] mx-auto">
+            <img
+              src={reqLogin}
+              alt="Order Img"
+              className="w-full object-cover"
+            />
+          </div>
+          <p className="mobile:text-2xl mb-6 px-4">
+            "Log in now to continue shopping!"
+          </p>
+          <div className="flex gap-4 justify-center">
+            <button
+              className="button bg-red-400 text-white"
+              onClick={handleLoginopen}
+            >
+              Sing IN/UP
+            </button>
+          </div>
+        </section>
+      )}
+
+      {/* Code in cart is empty */}
+      {isLoaded() === false && userDetails && stage !== "done" && (
+        <section className="w-full text-center bg-white py-10">
+          <p className="text-xl mobile:text-2xl tablet:text-4xl font-semibold">
+            Your Cart is empty
+          </p>
 
           <div className="w-64 mobile:w-96 tablet:w-[450px] mx-auto">
             <img
@@ -94,9 +128,11 @@ function Purchase() {
         </section>
       )}
 
-      {isLoaded() === true && stage === "done" && (
+      {isLoaded() === false && userDetails && stage === "done" && (
         <section className="w-full text-center bg-white py-10">
-          <p className="text-xl mobile:text-2xl tablet:text-4xl font-semibold">Thanks for Purchase💖 </p>
+          <p className="text-xl mobile:text-2xl tablet:text-4xl font-semibold">
+            Thanks for Purchase💖{" "}
+          </p>
           <div className="w-64 mobile:w-96 tablet:w-[450px] mx-auto">
             <img
               src={orderIMG}
@@ -121,11 +157,11 @@ function Purchase() {
               Shop More
             </button>
           </div>
-          {console.log(order)}
+          
         </section>
       )}
 
-      {isLoaded() === true && stage !== "done" && (
+      {isLoaded() === true && userDetails && stage !== "done" && (
         <div className="w-full  mobile:w-5/12 mb-6 mobile:mb-0 tablet:w-3/12 mobile:ml-6 bg-white text-lg h-fit">
           <p className="text-center my-2 text-xl">Price Details</p>
           <hr />

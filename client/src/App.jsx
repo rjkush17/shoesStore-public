@@ -43,7 +43,7 @@ function App() {
         <Route path="/shop/:type" element={<Shop />} />
         <Route path='/about' element={<About/>} />
         <Route path="/*" element={<NotFoundPage />} />
-        <Route path="/viewCart" element={<Purchase/>} />
+        <Route path="/viewCart" element={<Purchase handleLoginopen={handleLoginopen} />} />
       </Routes>
       <Footer />
     </>

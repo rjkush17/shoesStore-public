@@ -45,7 +45,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
 
         <hr className="mt-3" />
 
-        <nav className="h-12 flex items-center cols justify-between flex-col tablet:flex-row overflow-hidden">
+        <nav className="h-12 flex items-center mobile:my-4 cols justify-between flex-col tablet:flex-row overflow-hidden">
           <div className="flex items-center justify-between w-full  px-2 mobile:px-8">
             <img src={logo} className="h-12"  onClick={()=>navigate("/")}/>
             <div
@@ -77,7 +77,6 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
             <li className="nav-li" onClick={()=>navigate("/shop/women")}>WOMEN</li>
             <li className="nav-li"  onClick={()=>navigate("/shop/all")}>SHOP</li>
             <li className="nav-li"  onClick={()=>navigate("/about")}>ABOUT</li>
-            <li className="nav-li"  onClick={()=>navigate("/viewCart")}>purch</li>
             <li className="nav-li">BLOG</li>
       
           </ul>
