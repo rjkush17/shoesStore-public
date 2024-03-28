@@ -6,7 +6,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaPinterest } from "react-icons/fa";
 import { Parallax } from "react-parallax";
 import home_single from "../images/home/home_single.jpg";
-
 import { useNavigate } from "react-router-dom";
 import useHomeData from "../hook/useHomeData";
 import ProductCard from "../Components/ProductCard";

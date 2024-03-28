@@ -9,10 +9,12 @@ import Cart from "./models/Cart";
 import Shop from "./Page/Shop";
 import NotFoundPage from "./Page/NotFoundPage";
 import Profile from "./models/Profile";
-import About from "./Page/About"
+import About from "./Page/About";
 import Purchase from "./Page/Purchase";
 
 function App() {
+  const [showNav, setShowNav] = useState(true);
+
   const [isLoginOpen, SetIsLoginOpen] = useState(false);
   const handleLoginopen = () => {
     SetIsLoginOpen(!isLoginOpen);
@@ -23,29 +25,37 @@ function App() {
     SetIsCartOpen(!isCartOpen);
   };
   const [isProfileOpen, SetIsProfileOpen] = useState(false);
-  const handleProfileOpen = () =>{
-    SetIsProfileOpen(!isProfileOpen)
-  }
+  const handleProfileOpen = () => {
+    SetIsProfileOpen(!isProfileOpen);
+  };
 
   return (
     <>
       {isLoginOpen && <Login handleLoginopen={handleLoginopen} />}
       {isCartOpen && <Cart handleCartOpen={handleCartOpen} />}
       {isProfileOpen && <Profile handleProfileOpen={handleProfileOpen} />}
-      <Header
-        handleLoginopen={handleLoginopen}
-        handleCartOpen={handleCartOpen}
-        handleProfileOpen={handleProfileOpen}
-      />
+
+      {showNav && (
+        <Header
+          handleLoginopen={handleLoginopen}
+          handleCartOpen={handleCartOpen}
+          handleProfileOpen={handleProfileOpen}
+        />
+      )}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productpage/:productID" element={<ProductPage />} />
         <Route path="/shop/:type" element={<Shop />} />
-        <Route path='/about' element={<About/>} />
-        <Route path="/*" element={<NotFoundPage />} />
-        <Route path="/viewCart" element={<Purchase handleLoginopen={handleLoginopen} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/*" element={<NotFoundPage funcNav={setShowNav} />} />
+        <Route
+          path="/viewCart"
+          element={<Purchase handleLoginopen={handleLoginopen} />}
+        />
       </Routes>
-      <Footer />
+
+      {showNav && <Footer />}
     </>
   );
 }
