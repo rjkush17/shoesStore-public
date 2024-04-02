@@ -134,9 +134,9 @@ function Home() {
           </section>
 
           {/* sales section */}
-          <section className=" mt-5 text-white text-center">
+          <section className="mt-5 text-white text-center">
             <Parallax
-              strength={600}
+              strength={300}
               bgImage={home_single}
               style={{ height: "auto", backgroundSize: "cover" }}
               bgStyle={{

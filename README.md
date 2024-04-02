@@ -2,11 +2,11 @@
 
 smooth scrolling
 lazy loading
+title change when page changes
 preloader & error on component
 favicon image
 
-blog page
-blog search page 
+blog component
+blog page 
 
-error page
 search bar

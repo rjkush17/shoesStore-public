@@ -10,7 +10,7 @@ import {useAuth} from "../Context/authContext"
 import UserBox from "../assets/UserBox"
 
 
-function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
+function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearchOpen}) {
   
   const navigate = useNavigate();
   const {userDetails} = useAuth();
@@ -39,7 +39,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
            { !userDetails &&  <FaRegUser onClick={handleLoginopen} className=""/>}
            { userDetails && <UserBox user={userDetails.username} handleProfileOpen={handleProfileOpen}/>}
             <HiOutlineShoppingCart onClick={handleCartOpen} />
-            <FiSearch />
+            <FiSearch onClick={handleSearchOpen} />
           </div>
         </section>
 
@@ -75,8 +75,8 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen}) {
             <li className="nav-li" onClick={()=>navigate("/")}>HOME</li>
             <li className="nav-li" onClick={()=>navigate("/shop/men")}>MEN</li>
             <li className="nav-li" onClick={()=>navigate("/shop/women")}>WOMEN</li>
-            <li className="nav-li"  onClick={()=>navigate("/shop/all")}>SHOP</li>
-            <li className="nav-li"  onClick={()=>navigate("/about")}>ABOUT</li>
+            <li className="nav-li" onClick={()=>navigate("/shop/all")}>SHOP</li>
+            <li className="nav-li" onClick={()=>navigate("/about")}>ABOUT</li>
             <li className="nav-li">BLOG</li>
       
           </ul>

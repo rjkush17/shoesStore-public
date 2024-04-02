@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Page/Home";
 import Login from "./models/Login";
 import Cart from "./models/Cart";
+import Search from "./models/Search"
 import Shop from "./Page/Shop";
 import NotFoundPage from "./Page/NotFoundPage";
 import Profile from "./models/Profile";
@@ -28,18 +29,24 @@ function App() {
   const handleProfileOpen = () => {
     SetIsProfileOpen(!isProfileOpen);
   };
+  const [SearchOpen, SetSearchOpen] = useState(true);
+  const handleSearchOpen = () => {
+    SetSearchOpen(!SearchOpen);
+  };
 
   return (
     <>
       {isLoginOpen && <Login handleLoginopen={handleLoginopen} />}
       {isCartOpen && <Cart handleCartOpen={handleCartOpen} />}
       {isProfileOpen && <Profile handleProfileOpen={handleProfileOpen} />}
+      {SearchOpen && <Search handleSearchOpen={handleSearchOpen} /> }
 
       {showNav && (
         <Header
           handleLoginopen={handleLoginopen}
           handleCartOpen={handleCartOpen}
           handleProfileOpen={handleProfileOpen}
+          handleSearchOpen={handleSearchOpen}
         />
       )}
 
