@@ -29,7 +29,7 @@ function App() {
   const handleProfileOpen = () => {
     SetIsProfileOpen(!isProfileOpen);
   };
-  const [SearchOpen, SetSearchOpen] = useState(true);
+  const [SearchOpen, SetSearchOpen] = useState(false);
   const handleSearchOpen = () => {
     SetSearchOpen(!SearchOpen);
   };

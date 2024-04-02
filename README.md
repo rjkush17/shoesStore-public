@@ -9,4 +9,3 @@ favicon image
 blog component
 blog page 
 
-search bar
