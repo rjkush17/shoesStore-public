@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function NotFoundPage({ funcNav }) {
   useEffect(()=>{
     funcNav(false);
-
+    document.title = "404 Not found page"
     return () => {
       funcNav(true); 
   };

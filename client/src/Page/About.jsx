@@ -15,6 +15,7 @@ function About() {
   useEffect(() => {
       //scroll to top when open page
   window.scrollTo(0, 0)
+  document.title = "About US - Stylish shoes"
   }, []);
   // function for accordion
   const [currentAccordion, setCurrentAccordion] = useState(null);

@@ -12,6 +12,7 @@ function Shop() {
   const [sorted, setSorted] = useState(ShopData);
   useEffect(() => {
     fetchData(type);
+    document.title = "our shoes collections"
   }, [type]);
 
   useEffect(() => {

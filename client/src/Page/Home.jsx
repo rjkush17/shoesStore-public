@@ -20,6 +20,7 @@ function Home() {
   //function for render data no change
   useEffect(() => {
     fetchData();
+    document.title = "Stylish - Online Shoe Store"
   }, []);
 
   // Function to filter data based on homeList update

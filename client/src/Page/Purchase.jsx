@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../Context/authContext";
 import { useSelector, useDispatch } from "react-redux";
 import CheckoutCart from "../Components/CheckoutCart";
@@ -16,6 +16,9 @@ function Purchase({ handleLoginopen }) {
   const { userDetails } = useAuth();
   const cartList = useSelector((state) => state.cart);
  
+  useEffect(()=>{
+    document.title = "Purchase Your Product"
+  },[])
 
   const isLoaded = () => {
     if (cartList && cartList.length > 0) {

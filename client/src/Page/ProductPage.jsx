@@ -17,6 +17,7 @@ function ProductPage() {
     fetchData(productID);
       //scroll to top when open page
   window.scrollTo(0, 0)
+  document.title = "Product Details "
   }, []);
 
   console.log(listingData);

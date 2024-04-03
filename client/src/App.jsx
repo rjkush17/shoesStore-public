@@ -79,7 +79,13 @@ function App() {
         />
       )}
 
-      <Suspense fallback={<div>lazing loading working...</div>}>
+      <Suspense
+        fallback={
+          <div>
+            <h1 className="mt-16">lazing loading working...</h1>
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/productpage/:productID" element={<ProductPage />} />

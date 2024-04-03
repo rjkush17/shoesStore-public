@@ -21,6 +21,11 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
     setIsOpen(!isOpen);
   };
 
+  const handleNavigation = (path) =>{
+    setIsOpen(!isOpen)
+    navigate(path)
+  }
+
   return (
     <>
       <header className=" text-normal pt-3 overflow-hidden w-full bg-white z-40 fixed top-0">
@@ -72,11 +77,11 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
             ) : (
               ""
             )}
-            <li className="nav-li" onClick={()=>navigate("/")}>HOME</li>
-            <li className="nav-li" onClick={()=>navigate("/shop/men")}>MEN</li>
-            <li className="nav-li" onClick={()=>navigate("/shop/women")}>WOMEN</li>
-            <li className="nav-li" onClick={()=>navigate("/shop/all")}>SHOP</li>
-            <li className="nav-li" onClick={()=>navigate("/about")}>ABOUT</li>
+            <li className="nav-li" onClick={()=>handleNavigation("/")}>HOME</li>
+            <li className="nav-li" onClick={()=>handleNavigation("/shop/men")}>MEN</li>
+            <li className="nav-li" onClick={()=>handleNavigation("/shop/women")}>WOMEN</li>
+            <li className="nav-li" onClick={()=>handleNavigation("/shop/all")}>SHOP</li>
+            <li className="nav-li" onClick={()=>handleNavigation("/about")}>ABOUT</li>
             <li className="nav-li">BLOG</li>
       
           </ul>
