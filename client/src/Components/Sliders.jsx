@@ -28,7 +28,7 @@ function Sliders() {
 
   useEffect(() => {
     window.addEventListener('resize', adjustSlides);
-    adjustSlides(); // Initial adjustment on mount
+    adjustSlides();
 
     return () => window.removeEventListener('resize', adjustSlides);
   }, []); 
@@ -39,6 +39,7 @@ function Sliders() {
         speed: 500,
         slidesToShow: slides,
         slidesToScroll: 1,
+       
         appendDots: dots => (
           <div
             style={{

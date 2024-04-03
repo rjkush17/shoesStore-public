@@ -27,6 +27,7 @@ function ProductCard({ val }) {
         src={val.images[0].front}
         className="w-full h-full object-cover"
         alt={val.homeList}
+        loading="lazy"
       />
 
       <div className=" absolute top-full w-full h-full  flex justify-center gap-4 pt-36 group-hover:top-0 transition-all duration-1000 ">
