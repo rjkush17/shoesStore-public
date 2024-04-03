@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+// importing react libraries
+import React, { useState, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
+//importing componetns
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-import ProductPage from "./Page/ProductPage";
-import { Routes, Route } from "react-router-dom";
-import Home from "./Page/Home";
+//importing models
 import Login from "./models/Login";
 import Cart from "./models/Cart";
-import Search from "./models/Search"
-import Shop from "./Page/Shop";
-import NotFoundPage from "./Page/NotFoundPage";
+import Search from "./models/Search";
 import Profile from "./models/Profile";
-import About from "./Page/About";
-import Purchase from "./Page/Purchase";
+//importing pages
+// import Home from "./Page/Home";
+// import Shop from "./Page/Shop";
+// import NotFoundPage from "./Page/NotFoundPage";
+// import About from "./Page/About";
+// import Purchase from "./Page/Purchase";
+// import ProductPage from "./Page/ProductPage";
+const Home = React.lazy(() => import("./Page/Home"));
+const Shop = React.lazy(() => import("./Page/Shop"));
+const NotFoundPage = React.lazy(() => import("./Page/NotFoundPage"));
+const About = React.lazy(() => import("./Page/About"));
+const Purchase = React.lazy(() => import("./Page/Purchase"));
+const ProductPage = React.lazy(() => import("./Page/ProductPage"));
 
 function App() {
   const [showNav, setShowNav] = useState(true);
-
   const [isLoginOpen, SetIsLoginOpen] = useState(false);
   const handleLoginopen = () => {
     SetIsLoginOpen(!isLoginOpen);
@@ -36,10 +45,30 @@ function App() {
 
   return (
     <>
-      {isLoginOpen && <Login handleLoginopen={handleLoginopen} />}
-      {isCartOpen && <Cart handleCartOpen={handleCartOpen} />}
-      {isProfileOpen && <Profile handleProfileOpen={handleProfileOpen} />}
-      {SearchOpen && <Search handleSearchOpen={handleSearchOpen} /> }
+      {isLoginOpen && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Login handleLoginopen={handleLoginopen} />
+        </Suspense>
+      )}
+
+      {/* Similar Suspense wrapping for Cart, Search, and Profile modals */}
+      {isCartOpen && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Cart handleCartOpen={handleCartOpen} />
+        </Suspense>
+      )}
+
+      {isProfileOpen && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Profile handleProfileOpen={handleProfileOpen} />
+        </Suspense>
+      )}
+
+      {SearchOpen && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Search handleSearchOpen={handleSearchOpen} />
+        </Suspense>
+      )}
 
       {showNav && (
         <Header
@@ -50,17 +79,19 @@ function App() {
         />
       )}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productpage/:productID" element={<ProductPage />} />
-        <Route path="/shop/:type" element={<Shop />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/*" element={<NotFoundPage funcNav={setShowNav} />} />
-        <Route
-          path="/viewCart"
-          element={<Purchase handleLoginopen={handleLoginopen} />}
-        />
-      </Routes>
+      <Suspense fallback={<div>lazing loading working...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/productpage/:productID" element={<ProductPage />} />
+          <Route path="/shop/:type" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/*" element={<NotFoundPage funcNav={setShowNav} />} />
+          <Route
+            path="/viewCart"
+            element={<Purchase handleLoginopen={handleLoginopen} />}
+          />
+        </Routes>
+      </Suspense>
 
       {showNav && <Footer />}
     </>
