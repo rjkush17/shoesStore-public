@@ -28,7 +28,7 @@ function Blog() {
   ];
 
   return (
-    <section className="text-center w-10/12 mt-6 mobile:mt-auto mx-auto">
+    <section className="text-center w-10/12 mt-6 mobile:mt-auto mx-auto" data-scroll-section>
       <p className="my-10 mobile:my-20 text-3xl mobile:text-5xl font-extrabold text-center">
         Latest Post
       </p>

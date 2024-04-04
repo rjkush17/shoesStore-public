@@ -28,7 +28,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
 
   return (
     <>
-      <header className=" text-normal pt-3 overflow-hidden w-full bg-white z-40 fixed top-0">
+      <header className=" text-normal pt-3 overflow-hidden w-full bg-white z-40 fixed top-0" data-scroll-section>
         <section className="flex items-center	justify-between px-2 mobile:px-8">
           <div className="flex gap-3 text-2xl">
             <FaXTwitter />

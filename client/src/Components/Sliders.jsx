@@ -39,7 +39,6 @@ function Sliders() {
         speed: 500,
         slidesToShow: slides,
         slidesToScroll: 1,
-       
         appendDots: dots => (
           <div
             style={{
@@ -52,7 +51,7 @@ function Sliders() {
       };
 
   return (
-    <Slider {...settings} className="w-11/12 mx-auto mt-10 mb-20">
+       <Slider {...settings} className="w-11/12 mx-auto mt-10 mb-20">
     {/* div 1 */}
     <div className="h-[400px] mobile:h-[600px] ">
       <div

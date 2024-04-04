@@ -86,14 +86,14 @@ h5{
     margin:  0 20px;
 }
 .slick-dots{
-    bottom: -55px;
+    bottom: -55px !important;
 }
 .slick-dots li.slick-active button::before{
  color: rgb(255, 0, 0) !important;
 }
 .slick-dots li button::before{
     color: gray;
-    font-size: 1rem;
+    font-size: 1rem !important;
 }
 .slick-arrow{
     display: none !important;

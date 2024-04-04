@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <hr className="my-2" />
-      <footer className="flex flex-wrap p-6 gap-3 tablet:justify-evenly ">
+      <footer className="flex flex-wrap p-6 gap-3 tablet:justify-evenly " data-scroll-section>
         <div className="footer-col">
           <p className="footer_heading">INFO</p>
           <p>Track Your order</p>

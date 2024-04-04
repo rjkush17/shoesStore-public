@@ -41,7 +41,7 @@ function About() {
   ]
 
   return (
-    <section className="w-full mobile:leading-7">
+    <section className="w-full mobile:leading-7" data-scroll-section>
       <h1 className="text-4xl mobile:text-6xl tablet:text-8xl w-9/12 mobile:w-8/12 mx-auto mt-8 mobile:mt-16 mb-4">
         About Stylish Shoes
       </h1>

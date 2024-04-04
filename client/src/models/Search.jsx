@@ -48,7 +48,7 @@ function Search({ handleSearchOpen }) {
   return (
     <>
       <div className="w-screen text-center h-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center top-0 z-50 fixed overflow-hidden">
-        <section className="bg-white text-lg  rounded-md px-4 max-w-[500px] mobile:w-[500px] h-screen mobile:h-3/4">
+        <section className="bg-white text-lg  rounded-md px-4 max-w-[500px] mobile:w-[500px] h-screen mobile:h-3/4 overflow-hidden">
           <div className="flex justify-between my-4">
             <p className="font-bold">Search</p>
             <p>
@@ -69,7 +69,10 @@ function Search({ handleSearchOpen }) {
             />
           </div>
 
-          {errors && <p className={`${errors ? "error" : ""}`}>{errors}</p>}
+          {errors && <p className={`${errors ? "error" : ""}`}>{"Errors in Fecting Data"}</p>}
+          { errors &&  <div>
+                <img src={searchNotFound} alt="" />
+              </div> }
 
           {isLoading && currentQ.length >= 1 && (
             <div className="w-full mobile:w-10/12 mx-auto">
@@ -77,7 +80,7 @@ function Search({ handleSearchOpen }) {
             </div>
           )}
 
-          {currentQ.length == 0 && (
+          {currentQ.length == 0 && !errors && (
             <div>
               <div className="h-4/4 mt-16">
                 <p className="w-8/12 mx-auto text-xl">
@@ -107,7 +110,7 @@ function Search({ handleSearchOpen }) {
               </div>
             )}
 
-          {currentQ.length >= 1 && fliteredlist.length <= 0 && (
+          {currentQ.length >= 1 && !errors && fliteredlist.length <= 0 && (
             <div className="h-4/4 mt-12">
               <p className="w-10/12 mx-auto text-xl">
                 "No Matches Found,Try a New Search or Explore Our Collections."

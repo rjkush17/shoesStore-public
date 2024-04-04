@@ -48,6 +48,16 @@ export const get_shoplist = async (req, res) => {
         selling_price: 1,
         categories: 1,
       });
+    } else if (categoryName === "sales"){
+      shopData = await product_model.find(
+        { label: { $in: [`${categoryName}`] } },
+        {
+          title: 1,
+          "images.front": 1,
+          selling_price: 1,
+          categories: 1,
+        }
+      );
     } else {
       shopData = await product_model.find(
         { categories: { $in: [`${categoryName}`] } },
