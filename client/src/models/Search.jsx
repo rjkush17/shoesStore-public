@@ -110,7 +110,7 @@ function Search({ handleSearchOpen }) {
               </div>
             )}
 
-          {currentQ.length >= 1 && !errors && fliteredlist.length <= 0 && (
+          {currentQ.length >= 1 && !errors && !isLoading && fliteredlist.length <= 0 && (
             <div className="h-4/4 mt-12">
               <p className="w-10/12 mx-auto text-xl">
                 "No Matches Found,Try a New Search or Explore Our Collections."

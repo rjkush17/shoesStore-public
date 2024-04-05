@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import reviews1 from "../images/reviews/review-item1.jpg";
+import Preloader from "../Components/Preloader"
 import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useListingData } from "../hook/useListingData";
-import { useDispatch } from 'react-redux';
-import {addCart} from "../store/slices/cart"
+import { useDispatch } from "react-redux";
+import { addCart } from "../store/slices/cart";
 import { useNavigate } from "react-router-dom";
 
 function ProductPage() {
@@ -15,13 +16,12 @@ function ProductPage() {
 
   useEffect(() => {
     fetchData(productID);
-      //scroll to top when open page
-  window.scrollTo(0, 0)
-  document.title = "Product Details "
+    //scroll to top when open page
+    window.scrollTo(0, 0);
+    document.title = "Product Details ";
   }, []);
 
   console.log(listingData);
-
 
   // function for increase and decreace purchase quantity
   const [quantity, SetQuantity] = useState(1);
@@ -35,16 +35,17 @@ function ProductPage() {
     }
   };
 
-
-
   // function for main image change when click others img
- 
-  const [currentImage, setCurrentImage] = useState('');
+
+  const [currentImage, setCurrentImage] = useState("");
 
   useEffect(() => {
-
     if (Array.isArray(listingData.images) && listingData.images.length > 0) {
-      setCurrentImage(Object.values(listingData.images[0]).find(url => typeof url === "string" && url.startsWith("http")));
+      setCurrentImage(
+        Object.values(listingData.images[0]).find(
+          (url) => typeof url === "string" && url.startsWith("http")
+        )
+      );
     }
   }, [listingData.images]);
 
@@ -65,67 +66,67 @@ function ProductPage() {
     alert("Review Submiited for checking % it will show after QC progess");
   };
 
-  const handleCart = () =>{
-
+  const handleCart = () => {
     const productCart = {
-      _id : listingData._id,
-      title : listingData.title,
-      image : listingData.images[0].front,
-      price : listingData.selling_price,
-      pcs : quantity
-    }
-    dispatch(addCart(productCart))
-  }
+      _id: listingData._id,
+      title: listingData.title,
+      image: listingData.images[0].front,
+      price: listingData.selling_price,
+      pcs: quantity,
+    };
+    dispatch(addCart(productCart));
+  };
 
-  const handleBuy = () =>{
+  const handleBuy = () => {
     handleCart();
-    navigate("/viewCart")
-  }
-
+    navigate("/viewCart");
+  };
 
   return (
     <>
-      {isLoading && <p>fetching lsiting Data ....</p>}
-      {errors && <p>{errors.error}</p>}
+      {isLoading && <Preloader />}
+      {errors && <p className="error w-10/12 mx-auto">{"Product Not found"}</p>}
       {!errors && listingData && (
         <div>
           <section className="w-full justify-center items-center tablet:items-start flex gap-4 mobile:gap-8 mt-4 mobile:mt-12 tablet:mt-24 flex-col tablet:flex-row">
             {/* //image render code */}
             <div className="flex h-fit flex-col-reverse tablet:flex-row w-10/12 tablet:w-7/12 gap-2 mobile:gap-6">
-      {/* Thumbnails */}
-      <div className="tablet:w-2/12 flex flex-row gap-2 tablet:gap-0 tablet:flex-col w-full justify-between">
-        {Array.isArray(listingData.images) &&
-          listingData.images.length > 0 &&
-          Object.values(listingData.images[0])
-            .filter(
-              (imageUrl) =>
-                typeof imageUrl === "string" &&
-                imageUrl.startsWith("http")
-            )
-            .map((imageUrl, index) => (
-              <div key={index} className="h-10/12 cursor-pointer">
-                <img 
-                  src={imageUrl}
-                  onClick={() => handleImage(imageUrl)}
+              {/* Thumbnails */}
+              <div className="tablet:w-2/12 flex flex-row gap-2 tablet:gap-0 tablet:flex-col w-full justify-between">
+                {Array.isArray(listingData.images) &&
+                  listingData.images.length > 0 &&
+                  Object.values(listingData.images[0])
+                    .filter(
+                      (imageUrl) =>
+                        typeof imageUrl === "string" &&
+                        imageUrl.startsWith("http")
+                    )
+                    .map((imageUrl, index) => (
+                      <div key={index} className="h-10/12 cursor-pointer">
+                        <img
+                          src={imageUrl}
+                          onClick={() => handleImage(imageUrl)}
+                          className="h-full w-full object-cover aspect-square	"
+                          alt=""
+                        />
+                      </div>
+                    ))}
+              </div>
+              {/* Main Image */}
+              <div className="w-full">
+                <img
+                  src={currentImage}
                   className="h-full w-full object-cover aspect-square	"
-                  alt=""
+                  alt="Selected Product"
                 />
               </div>
-            ))}
-      </div>
-      {/* Main Image */}
-      <div className="w-full">
-        <img
-          src={currentImage}
-          className="h-full w-full object-cover aspect-square	"
-          alt="Selected Product"
-        />
-      </div>
-    </div>
+            </div>
 
             {/* //product details code */}
             <div className="w-10/12 tablet:w-3/12">
-              <h1 className="heading1 leading-9 mt-4 mb-6">{listingData.title}</h1>
+              <h1 className="heading1 leading-9 mt-4 mb-6">
+                {listingData.title}
+              </h1>
               <h5>
                 <span className="font-bold  text-2xl">
                   ${listingData.selling_price}
@@ -165,10 +166,16 @@ function ProductPage() {
                 </button>
               </div>
               <div className="">
-                <button className="button bg-black text-white mr-4" onClick={handleBuy}>
+                <button
+                  className="button bg-black text-white mr-4"
+                  onClick={handleBuy}
+                >
                   BUY NOW
                 </button>
-                <button className="button   border border-grey-500 mb-6" onClick={handleCart}>
+                <button
+                  className="button   border border-grey-500 mb-6"
+                  onClick={handleCart}
+                >
                   ADD TO CART
                 </button>
                 <div className="flex items-start  gap-5 mb-4">

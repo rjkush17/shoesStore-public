@@ -142,8 +142,8 @@ function Home() {
             <p className="text-center p-4">Feching Product Data ...</p>
           </div>
         )}
+        {errors && <p className="error">{"failded to Fatch Products Data"}</p>}
         <div className="grid gap-8 grid-cols-1 mobile:grid-cols-2 grid:grid-cols-4 tablet:grid-cols-3">
-          {errors && <p className="error">{"failded to Fatch The Data"}</p>}
           {!errors &&
             currentProduct &&
             fliteredData.map((val, ind) => <ProductCard val={val} key={ind} />)}
