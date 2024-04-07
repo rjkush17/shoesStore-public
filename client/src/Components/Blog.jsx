@@ -1,8 +1,9 @@
 import React from "react";
 import blogImage from "../images/home/blog.jpg";
+import blogImage2 from "../images/home/blog2.jpg";
+import blogImage3 from "../images/home/blog3.jpg";
 
 function Blog() {
-    
   const blog = [
     {
       blogName: "Running Shoes for men",
@@ -16,29 +17,32 @@ function Blog() {
       date: "April 24 2023",
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      img: blogImage,
+      img: blogImage2,
     },
     {
       blogName: "Running Shoes for men",
       date: "April 24 2023",
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      img: blogImage,
+      img: blogImage3,
     },
   ];
 
   return (
-    <section className="text-center w-10/12 mt-6 mobile:mt-auto mx-auto" data-scroll-section>
+    <section
+      className="text-center w-10/12  mt-6 mobile:mt-auto mx-auto"
+      data-scroll-section
+    >
       <p className="my-10 mobile:my-20 text-3xl mobile:text-5xl font-extrabold text-center">
         Latest Post
       </p>
       <div className="grid gap-8 grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-3">
         {blog.map((val, ind) => (
           <div key={ind} className="mx-auto">
-            <div className="min-w-24 min-h-24 overflow-hidden">
+            <div className="min-w-24 min-h-24 overflow-hidden aspect-square">
               <img
                 src={val.img}
-                className="w-full h-full object-cover hover:scale-150 transition duration-1000	 ease-in-out delay-150"
+                className="w-full h-full object-cover hover:scale-150 transition duration-1000 ease-in-out delay-150"
                 alt={val.title}
               />
             </div>
@@ -53,6 +57,24 @@ function Blog() {
           </div>
         ))}
       </div>
+{/* <div className="bg-red-500 w-full px-16">
+<div className="w-10/12 mx-auto flex justify-between items-center">
+        <div>
+          <p>Blog</p>
+          <h2>Step into Style: Discover the Latest Trends in Our Shoe Blog!</h2>
+          <p> 17 March 2K24</p>
+          <p>
+            "Explore the latest shoe trends and styling tips. Dive into reviews
+            and fashion insights. Click to elevate your style journey with our
+            exclusive blog."
+          </p>
+        </div>
+        <div className=" overflow-hidden aspect-video">
+          <img src={blogImage1} alt="blog image"/>
+        </div>
+      </div>
+</div> */}
+     
     </section>
   );
 }

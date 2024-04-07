@@ -13,6 +13,7 @@ function Shop() {
   const [sorted, setSorted] = useState(ShopData);
   useEffect(() => {
     fetchData(type);
+    window.scrollTo(0, 0);
     document.title = "our shoes collections";
   }, [type]);
 
@@ -60,7 +61,7 @@ function Shop() {
           <p className="text-4xl mobile:text-7xl mb-2 mobile:mb-6">SHOP</p>
           <p className="text-xl uppercase">Shop &gt; {type}</p>
         </div>
-        {isLoading && <Preloader/>}
+        {isLoading && <Preloader condition={true}/>}
         {errors && <p className="error w-10/12 mx-auto">{errors}</p>}
         {!isLoading && !errors && sorted && (
         <div className="flex flex-col-reverse tablet:flex-row w-full">

@@ -49,7 +49,7 @@ function Home() {
       >
         <div className="inline-flex min-w-1/4  leading-7 tracking-wide">
           <div>
-            <RiShoppingBagLine className="text-6xl mr-3 " />
+            <RiShoppingBagLine className="text-6xl mr-3" />
           </div>
           <div className="">
             <h5>Fast & Free Shipping</h5>
@@ -140,6 +140,7 @@ function Home() {
           <div className="flex flex-col justify-center items-center">
             <img src={preloader} alt="Loading..." />
             <p className="text-center p-4">Feching Product Data ...</p>
+            <p className="text-sm text-red-400 mb-6">Please wait while we fetch your data. Our server is warming up and it might take a little extra time. Thank you for your patience!</p>
           </div>
         )}
         {errors && <p className="error">{"failded to Fatch Products Data"}</p>}

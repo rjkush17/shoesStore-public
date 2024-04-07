@@ -18,6 +18,7 @@ const NotFoundPage = React.lazy(() => import("./Page/NotFoundPage"));
 const About = React.lazy(() => import("./Page/About"));
 const Purchase = React.lazy(() => import("./Page/Purchase"));
 const ProductPage = React.lazy(() => import("./Page/ProductPage"));
+const Blog = React.lazy(() => import("./Page/BlogPage"))
 
 function App() {
   const [showNav, setShowNav] = useState(true);
@@ -86,6 +87,7 @@ function App() {
             <Route path="/productpage/:productID" element={<ProductPage />} />
             <Route path="/shop/:type" element={<Shop />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blog/:blogID" element={<Blog/>} />
             <Route path="/*" element={<NotFoundPage funcNav={setShowNav} />} />
             <Route
               path="/viewCart"

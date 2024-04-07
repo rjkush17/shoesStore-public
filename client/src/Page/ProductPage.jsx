@@ -84,7 +84,7 @@ function ProductPage() {
 
   return (
     <>
-      {isLoading && <Preloader />}
+      {isLoading && <Preloader condition={true} />}
       {errors && <p className="error w-10/12 mx-auto">{"Product Not found"}</p>}
       {!errors && listingData && (
         <div>

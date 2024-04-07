@@ -41,10 +41,10 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
             all the orders above $250
           </p>
           <div className="flex items-center	justify-between gap-3 text-2xl">
-           { !userDetails &&  <FaRegUser onClick={handleLoginopen} className=""/>}
-           { userDetails && <UserBox user={userDetails.username} handleProfileOpen={handleProfileOpen}/>}
-            <HiOutlineShoppingCart onClick={handleCartOpen} />
-            <FiSearch onClick={handleSearchOpen} />
+           { !userDetails &&  <FaRegUser onClick={handleLoginopen} className="cursor-pointer"/>}
+           { userDetails && <UserBox user={userDetails.username} handleProfileOpen={handleProfileOpen} className="cursor-pointer	"/>}
+            <HiOutlineShoppingCart onClick={handleCartOpen} className="cursor-pointer	" />
+            <FiSearch onClick={handleSearchOpen} className="cursor-pointer	" />
           </div>
         </section>
 
@@ -52,7 +52,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
 
         <nav className="h-12 flex items-center mobile:my-4 cols justify-between flex-col tablet:flex-row overflow-hidden">
           <div className="flex items-center justify-between w-full  px-2 mobile:px-8">
-            <img src={logo} className="h-12"  onClick={()=>navigate("/")}/>
+            <img src={logo} className="h-12 cursor-pointer"  onClick={()=>navigate("/")}/>
             <div
               className="ml-auto flex items-center text-2xl tablet:hidden"
               onClick={handleNav}
@@ -82,8 +82,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
             <li className="nav-li" onClick={()=>handleNavigation("/shop/women")}>WOMEN</li>
             <li className="nav-li" onClick={()=>handleNavigation("/shop/all")}>SHOP</li>
             <li className="nav-li" onClick={()=>handleNavigation("/about")}>ABOUT</li>
-            <li className="nav-li">BLOG</li>
-      
+            <li className="nav-li" onClick={()=>handleNavigation("/blog/dd")}>BLOG</li>
           </ul>
         </nav>
       </header>

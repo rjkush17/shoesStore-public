@@ -15,6 +15,7 @@ export default {
         "tablet":"900px",
         "mobile":"500px",
         "slider":"720px",
+        "laptop" : "1030px",
         "grid":"1200px"
       }
     },
