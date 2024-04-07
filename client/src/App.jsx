@@ -1,9 +1,10 @@
 // importing react libraries
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 //importing component
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+
 //importing models
 const Login = React.lazy(() => import("./models/Login"));
 const Cart = React.lazy(() => import("./models/Cart"));
@@ -20,7 +21,15 @@ const Purchase = React.lazy(() => import("./Page/Purchase"));
 const ProductPage = React.lazy(() => import("./Page/ProductPage"));
 const Blog = React.lazy(() => import("./Page/BlogPage"))
 
-function App() {
+
+function App() { 
+
+  useEffect(()=>{
+    document.title = "Stylish - Online Shoe Store";
+    window.scrollTo(0, 0)
+  },[])
+
+  
   const [showNav, setShowNav] = useState(true);
   const [isLoginOpen, SetIsLoginOpen] = useState(false);
   const handleLoginopen = () => {
@@ -87,7 +96,7 @@ function App() {
             <Route path="/productpage/:productID" element={<ProductPage />} />
             <Route path="/shop/:type" element={<Shop />} />
             <Route path="/about" element={<About />} />
-            <Route path="/blog/:blogID" element={<Blog/>} />
+            <Route path="/blog" element={<Blog/>} />
             <Route path="/*" element={<NotFoundPage funcNav={setShowNav} />} />
             <Route
               path="/viewCart"

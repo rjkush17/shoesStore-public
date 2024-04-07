@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import searching from "../images/GIF/seaching.gif";
 import searchIMG from "../images/search/searchIMG.jpg";
 import searchNotFound from "../images/search/searchNotFound.jpg";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Search({ handleSearchOpen }) {
   const { isLoading, errors, searchDATA, fetchData } = useSearchData();
@@ -13,6 +16,7 @@ function Search({ handleSearchOpen }) {
   useEffect(() => {
     document.body.classList.add("overflow-y-hidden");
     fetchData();
+    AOS.init({ offset: 200, duration: 600 });
 
     return () => {
       document.body.classList.remove("overflow-y-hidden");
@@ -47,8 +51,8 @@ function Search({ handleSearchOpen }) {
 
   return (
     <>
-      <div className="w-screen text-center h-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center top-0 z-50 fixed overflow-hidden">
-        <section className="bg-white text-lg  rounded-md px-4 max-w-[500px] mobile:w-[500px] h-screen mobile:h-3/4 overflow-hidden">
+      <div className="w-screen text-center h-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center top-0 z-50 fixed overflow-hidden" >
+        <section className="bg-white text-lg  rounded-md px-4 max-w-[500px] mobile:w-[500px] h-screen mobile:h-3/4 overflow-hidden" data-aos="fade-down">
           <div className="flex justify-between my-4">
             <p className="font-bold">Search</p>
             <p>

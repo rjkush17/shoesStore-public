@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { uselogin } from "../hook/uselogin";
 import { useSignup } from "../hook/useSignup";
 import { IoCloseSharp } from "react-icons/io5";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Login({ handleLoginopen }) {
   useEffect(() => {
     document.body.classList.add("overflow-y-hidden");
+    AOS.init({ offset: 200, duration: 600 });
 
     return () => {
       document.body.classList.remove("overflow-y-hidden");
@@ -66,7 +70,7 @@ function Login({ handleLoginopen }) {
   return (
     <>
       <div className="w-screen h-screen bg-white-400 flex justify-center items-center top-0 z-50 fixed overflow-hidden bg-[rgba(0,0,0,0.3)]">
-        <section className="bg-white h-screen mobile:h-auto p-4 w-[555px] rounded-md">
+        <section className="bg-white h-screen mobile:h-auto p-4 w-[555px] rounded-md" data-aos="fade-down">
           <p
             className="text-white w-fit mt-16 mobile:mt-auto ml-auto"
             onClick={handleLoginopen}

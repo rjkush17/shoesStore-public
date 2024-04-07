@@ -9,6 +9,9 @@ import orderIMG from "../images/purchase/order.jpg";
 import emptyCart from "../images/GIF/emptyCart.gif";
 import reqLogin from "../images/purchase/reqLogin.jpg";
 import { useNavigate } from "react-router-dom";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 function Purchase({ handleLoginopen }) {
@@ -18,6 +21,8 @@ function Purchase({ handleLoginopen }) {
  
   useEffect(()=>{
     document.title = "Purchase Your Product"
+    window.scrollTo(0, 0);
+    AOS.init({ offset: 200, duration: 600 });
   },[])
 
   const isLoaded = () => {

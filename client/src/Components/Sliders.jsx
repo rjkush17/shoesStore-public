@@ -8,6 +8,9 @@ import card_image3 from "../images/sliderImg/card-image3.jpg";
 import card_image4 from "../images/sliderImg/card-image4.jpg";
 import card_image5 from "../images/sliderImg/card-image5.jpg";
 import card_image6 from "../images/sliderImg/card-image6.jpg";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 import { useNavigate } from "react-router-dom";
@@ -29,7 +32,7 @@ function Sliders() {
   useEffect(() => {
     window.addEventListener('resize', adjustSlides);
     adjustSlides();
-
+      AOS.init({ offset: 200, duration: 600 });
     return () => window.removeEventListener('resize', adjustSlides);
   }, []); 
 
@@ -53,7 +56,7 @@ function Sliders() {
   return (
        <Slider {...settings} className="w-11/12 mx-auto mt-10 mb-20">
     {/* div 1 */}
-    <div className="h-[400px] mobile:h-[600px] ">
+    <div className="h-[400px] mobile:h-[600px]"  data-aos="fade-right">
       <div
         className="bg-cover bg-center h-full rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image1})` }}
@@ -70,10 +73,11 @@ function Sliders() {
     </div>
 
     {/* div2 */}
-    <div className="h-[400px] mobile:h-[600px] ">
+    <div className="h-[400px] mobile:h-[600px]">
       <div
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden mb-[4%] relative"
         style={{ backgroundImage: `url(${card_image2})` }}
+        data-aos="fade-down"
       >
           <div className="absolute bottom-6 mobile:bottom-12 left-6 mobile:left-12 leading-9 text-white">
           <h1>Sport wear</h1>
@@ -86,6 +90,7 @@ function Sliders() {
       <div
         className="bg-cover bg-center h-[48%] rounded-[15px] overflow-hidden relative"
         style={{ backgroundImage: `url(${card_image3})` }}
+        data-aos="fade-up"
       >
         <div className="absolute bottom-6 mobile:bottom-12 left-6 mobile:left-12 leading-9 text-white">
           <h1>Fashion Shoes</h1>

@@ -11,6 +11,10 @@ import useHomeData from "../hook/useHomeData";
 import ProductCard from "../Components/ProductCard";
 import Blog from "../Components/Blog";
 import preloader from "../images/loader.gif";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 function Home() {
   const navigate = useNavigate();
@@ -21,7 +25,8 @@ function Home() {
   //function for render data no change
   useEffect(() => {
     fetchData();
-    document.title = "Stylish - Online Shoe Store";
+    AOS.init({ offset: 200, duration: 600 });
+
   }, []);
 
   // Function to filter data based on homeList update
@@ -38,27 +43,27 @@ function Home() {
   };
 
   return (
-    <>
+    <main className="w-screen overflow-x-hidden overflow-y-auto">
       {/* // SliderComponent */}
       <Slider />
 
       {/* //quality component */}
-      <section
+      <section 
         className="grid grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-4 gap-10 tablet:gap-3 w-10/12 mx-auto py-7 mobile:py-20"
-        data-scroll-section
+  
       >
-        <div className="inline-flex min-w-1/4  leading-7 tracking-wide">
+        <div className="inline-flex min-w-1/4  leading-7 tracking-wide"  data-aos="fade-up">
           <div>
             <RiShoppingBagLine className="text-6xl mr-3" />
           </div>
-          <div className="">
+          <div className="" data-aos="fade-up">
             <h5>Fast & Free Shipping</h5>
             <p className="text-sm text-gray-500">
               Consectetur adipi elit lorem ipsum dolor sit amet.
             </p>
           </div>
         </div>
-        <div className="inline-flex min-w-1/4  leading-7 tracking-wide">
+        <div className="inline-flex min-w-1/4  leading-7 tracking-wide" data-aos="fade-down">
           <div>
             <FaInstagram className="text-6xl mr-3 " />
           </div>
@@ -69,7 +74,7 @@ function Home() {
             </p>
           </div>
         </div>
-        <div className="inline-flex min-w-1/4  leading-7 tracking-wide">
+        <div className="inline-flex min-w-1/4  leading-7 tracking-wide" data-aos="fade-up">
           <div>
             <AiOutlineShoppingCart className="text-6xl mr-3 " />
           </div>
@@ -81,7 +86,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="inline-flex min-w-1/4  leading-7 tracking-wide">
+        <div className="inline-flex min-w-1/4  leading-7 tracking-wide" data-aos="fade-down">
           <div>
             <FaPinterest className="text-6xl mr-3 " />
           </div>
@@ -140,7 +145,10 @@ function Home() {
           <div className="flex flex-col justify-center items-center">
             <img src={preloader} alt="Loading..." />
             <p className="text-center p-4">Feching Product Data ...</p>
-            <p className="text-sm text-red-400 mb-6">Please wait while we fetch your data. Our server is warming up and it might take a little extra time. Thank you for your patience!</p>
+            <p className="text-sm text-red-400 mb-6">
+              Please wait while we fetch your data. Our server is warming up and
+              it might take a little extra time. Thank you for your patience!
+            </p>
           </div>
         )}
         {errors && <p className="error">{"failded to Fatch Products Data"}</p>}
@@ -177,7 +185,7 @@ function Home() {
 
       {/* Blog */}
       <Blog />
-    </>
+    </main>
   );
 }
 

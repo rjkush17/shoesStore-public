@@ -1,9 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import blogImage from "../images/home/blog.jpg";
 import blogImage2 from "../images/home/blog2.jpg";
 import blogImage3 from "../images/home/blog3.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Blog() {
+
+  useEffect(()=>{
+    AOS.init({ offset: 200, duration: 600 });
+  },[])
+  
   const blog = [
     {
       blogName: "Running Shoes for men",
@@ -11,6 +18,7 @@ function Blog() {
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       img: blogImage,
+      ani : "fade-right"
     },
     {
       blogName: "Running Shoes for men",
@@ -18,6 +26,7 @@ function Blog() {
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       img: blogImage2,
+      ani : "fade-up"
     },
     {
       blogName: "Running Shoes for men",
@@ -25,6 +34,7 @@ function Blog() {
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       img: blogImage3,
+      ani : "fade-left"
     },
   ];
 
@@ -32,13 +42,14 @@ function Blog() {
     <section
       className="text-center w-10/12  mt-6 mobile:mt-auto mx-auto"
       data-scroll-section
+     
     >
       <p className="my-10 mobile:my-20 text-3xl mobile:text-5xl font-extrabold text-center">
         Latest Post
       </p>
       <div className="grid gap-8 grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-3">
         {blog.map((val, ind) => (
-          <div key={ind} className="mx-auto">
+          <div key={ind} className="mx-auto"  data-aos={`${val.ani}`}>
             <div className="min-w-24 min-h-24 overflow-hidden aspect-square">
               <img
                 src={val.img}

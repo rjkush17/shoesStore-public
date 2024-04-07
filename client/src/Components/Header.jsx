@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaXTwitter, FaBarsStaggered } from "react-icons/fa6";
 import { FaInstagram, FaPinterest, FaYoutube, FaRegUser } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
@@ -15,11 +15,21 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
   const navigate = useNavigate();
   const {userDetails} = useAuth();
 
-  //function for open/close nav panel
-  const [isOpen, setIsOpen] = useState(false);
-  const handleNav = () => {
-    setIsOpen(!isOpen);
-  };
+ //function for open/close nav panel
+ const [isOpen, setIsOpen] = useState(false);
+ const handleNav = () => {
+   setIsOpen(!isOpen);
+ };
+
+  // useEffect(()=>{
+  //   if(isOpen){
+  //     document.body.classList.add("overflow-y-hidden");
+  //     document.body.classList.add("mobile:overflow-y-auto");
+  //   }else{
+  //       document.body.classList.remove("overflow-y-hidden");
+  //       document.body.classList.remove("mobile:overflow-y-auto");
+  //   }
+  // },[isOpen])
 
   const handleNavigation = (path) =>{
     setIsOpen(!isOpen)
@@ -28,7 +38,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
 
   return (
     <>
-      <header className=" text-normal pt-3 overflow-hidden w-full bg-white z-40 fixed top-0" data-scroll-section>
+      <header className=" text-normal pt-3 overflow-hidden w-full bg-white z-40 fixed top-0">
         <section className="flex items-center	justify-between px-2 mobile:px-8">
           <div className="flex gap-3 text-2xl">
             <FaXTwitter />
@@ -50,7 +60,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
 
         <hr className="mt-3" />
 
-        <nav className="h-12 flex items-center mobile:my-4 cols justify-between flex-col tablet:flex-row overflow-hidden">
+        <nav className="h-12 flex items-center mobile:my-4 cols justify-between flex-col tablet:flex-row overflow-hidden" >
           <div className="flex items-center justify-between w-full  px-2 mobile:px-8">
             <img src={logo} className="h-12 cursor-pointer"  onClick={()=>navigate("/")}/>
             <div
@@ -82,7 +92,7 @@ function Header({handleLoginopen, handleCartOpen, handleProfileOpen, handleSearc
             <li className="nav-li" onClick={()=>handleNavigation("/shop/women")}>WOMEN</li>
             <li className="nav-li" onClick={()=>handleNavigation("/shop/all")}>SHOP</li>
             <li className="nav-li" onClick={()=>handleNavigation("/about")}>ABOUT</li>
-            <li className="nav-li" onClick={()=>handleNavigation("/blog/dd")}>BLOG</li>
+            <li className="nav-li" onClick={()=>handleNavigation("/blog")}>BLOG</li>
           </ul>
         </nav>
       </header>

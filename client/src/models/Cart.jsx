@@ -5,11 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteCart, addQun, minusQun } from "../store/slices/cart";
 import emptyCart from "../images/GIF/emptyCart.gif";
 import {subTotal} from '../assets/subtotal'
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Cart({ handleCartOpen }) {
   useEffect(() => {
     document.body.classList.add("overflow-y-hidden");
-
+    AOS.init({ offset: 200, duration: 600 });
     return () => {
       document.body.classList.remove("overflow-y-hidden");
     };
@@ -28,7 +31,7 @@ function Cart({ handleCartOpen }) {
   return (
     <>
       <div className="w-screen h-screen bg-[rgba(0,0,0,0.3)] flex justify-center items-center top-0 z-50 fixed overflow-hidden">
-        <section className="bg-white text-lg  rounded-md px-4 max-w-[500px] mobile:w-[500px] h-screen mobile:h-auto">
+        <section className="bg-white text-lg  rounded-md px-4 max-w-[500px] mobile:w-[500px] h-screen mobile:h-auto" data-aos="fade-up">
           <div className="flex py-4 ">
             <p className="font-bold">Cart</p>
             <IoCloseSharp

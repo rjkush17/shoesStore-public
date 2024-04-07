@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Footer() {
+
+  useEffect(()=>{
+    AOS.init({ offset: 200, duration: 600 });
+  },[])
+  
   return (
     <>
       <hr className="my-2" />
       <footer className="flex flex-wrap p-6 gap-3 tablet:justify-evenly " data-scroll-section>
-        <div className="footer-col">
+        <div className="footer-col" data-aos="fade-up">
           <p className="footer_heading">INFO</p>
           <p>Track Your order</p>
           <p>Our Blog</p>
@@ -15,7 +23,7 @@ function Footer() {
           <p>Help</p>
           <p>Community</p>
         </div>
-        <div className="footer-col">
+        <div className="footer-col" data-aos="fade-up">
           <p className="footer_heading">ABOUT</p>
           <p>History</p>
           <p>our Team</p>
@@ -25,7 +33,7 @@ function Footer() {
           <p>Wholesale</p>
           <p>Retail</p>
         </div>
-        <div className="footer-col">
+        <div className="footer-col" data-aos="fade-up">
           <p className="footer_heading">Collections</p>
           <p>Mens Collection</p>
           <p>Women Collection</p>
@@ -35,7 +43,7 @@ function Footer() {
           <p>Help</p>
           <p>Community</p>
         </div>
-        <div className="footer-col">
+        <div className="footer-col" data-aos="fade-up">
           <p className="footer_heading">More</p>
           <p>Delivery</p>
           <p>About us</p>
@@ -45,7 +53,7 @@ function Footer() {
           <p>Patners</p>
           <p>become Seller</p>
         </div>
-        <div className="footer-col">
+        <div className="footer-col" data-aos="fade-up">
           <p className="footer_heading">Get In Touch</p>
           <p >Stylish Online Store 123 Main Street</p>
           <p>Toulouse - France.</p>

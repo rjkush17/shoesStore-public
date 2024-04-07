@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineShopping } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addCart } from "../store/slices/cart";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function ProductCard({ val }) {
 
@@ -19,9 +22,12 @@ function ProductCard({ val }) {
     }
     dispatch(addCart(ProductData))
   }
+  useEffect(()=>{
+    AOS.init({ offset: 200, duration: 600 });
+  },[])
 
   return (
-    <div className=" group  mx-auto cursor-pointer">
+    <div className=" group  mx-auto cursor-pointer" data-aos="zoom-in">
     <div className="max-w-64 max-h-64 min-w-24 min-h-24 mx-auto overflow-hidden aspect-square relative">
       <img
         src={val.images[0].front}

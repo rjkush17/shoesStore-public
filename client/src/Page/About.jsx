@@ -10,10 +10,14 @@ import team_item3 from "../images/about/team-item3.jpg";
 import team_item4 from "../images/about/team-item4.jpg";
 import client1 from "../images/about/client1.jpg"
 import client2 from "../images/about/client2.jpg"
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function About() {
   useEffect(() => {
       //scroll to top when open page
+    AOS.init({ offset: 200, duration: 600 });
   window.scrollTo(0, 0)
   document.title = "About US - Stylish shoes"
   }, []);
@@ -41,7 +45,7 @@ function About() {
   ]
 
   return (
-    <section className="w-full mobile:leading-7" data-scroll-section>
+    <section className="w-screen overflow-x-hidden mobile:leading-7" data-scroll-section>
       <h1 className="text-4xl mobile:text-6xl tablet:text-8xl w-9/12 mobile:w-8/12 mx-auto mt-8 mobile:mt-16 mb-4">
         About Stylish Shoes
       </h1>
@@ -53,7 +57,7 @@ function About() {
 
       {/* Arrcoding section */}
       <article className="w-10/12 mx-auto flex flex-col tablet:flex-row mobile:gap-10 tracking-wide">
-        <div className="w-full tablet:w-6/12">
+        <div className="w-full tablet:w-6/12" data-aos="zoom-in-right">
           <h1 className="my-3 text-5xl">About Us</h1>
           <p className="text-gray-500 w-10/12">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
@@ -133,7 +137,7 @@ function About() {
             </p>
           </div>
         </div>
-        <div className="w-full tablet:w-6/12">
+        <div className="w-full tablet:w-6/12" data-aos="zoom-in-left">
           <h1 className="my-3 text-5xl">Who we are ?</h1>
           <p className="text-gray-500">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -141,17 +145,17 @@ function About() {
             ever since the 1500s, when an unknown printer took a galley. Lorem
             Ipsum is simply dummy text of the printing and typesetting industry.
           </p>
-          <div className="flex flex-col gap-10 tablet:flex-row">
-            <div className="border border-gray-400 py-10 px-16 my-4">
+          <div className="flex flex-col gap-10 tablet:flex-row" data-aos="fade-up" >
+            <div className="border border-gray-400 py-10 px-16 my-4" data-aos="fade-right" data-aos-duration="1500" >
               <h2 className="text-2xl font-bold">Our Vision</h2>
-              <ul className="text-gray-400 leading-7 list-disc list-outside">
+              <ul className="text-gray-400 leading-7 list-disc list-outside" >
                 <li className="">Maecenas sed diam eget</li>
                 <li>Blandit sit amet non magna</li>
                 <li>Purus risus varius</li>
                 <li>Egestas sit amet lorem</li>
               </ul>
             </div>
-            <div className="border border-gray-400 py-10 px-16 my-4">
+            <div className="border border-gray-400 py-10 px-16 my-4" data-aos="fade-left" data-aos-duration="1500">
               <h2 className="text-2xl font-bold">Our Mission</h2>
               <ul className="text-gray-400 leading-7 list-disc list-outside	">
                 <li className="">Maecenas sed diam eget</li>
@@ -166,10 +170,10 @@ function About() {
 
       {/* Team Memebr Section */}
       <article>
-        <h1 className="text-center mt-10 mobile:mt-20 mb-4 text-3xl mobile:text-5xl font-extrabold">
+        <h1 className="text-center mt-10 mobile:mt-20 mb-4 text-3xl mobile:text-5xl font-extrabold" data-aos="zoom-out">
           Meet Our Team
         </h1>
-        <p className="mobile:text-center w-10/12 tablet:w-6/12 mx-auto text-gray-500">
+        <p className="mobile:text-center w-10/12 tablet:w-6/12 mx-auto text-gray-500" data-aos="zoom-out">
           Our Team is dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industry’s standard dummy text ever an unknown
           printer took a galley
@@ -184,8 +188,8 @@ function About() {
       </article>
 
       {/* testimony section */}
-      <h1 className="mt-32 text-5xl mx-auto w-10/12 text-center">What Our Client Says</h1>
-      <div className="flex flex-col tablet:flex-row mobile:mb-48 w-10/12 gap-6 tablet:gap-16 mx-auto">
+      <h1 className="mt-32 text-5xl mx-auto w-10/12 text-center" data-aos="fade-up">What Our Client Says</h1>
+      <div className="flex flex-col tablet:flex-row mobile:mb-48 w-10/12 gap-6 tablet:gap-16 mx-auto" data-aos="fade-down">
       {ClientSaysData.map((val,ind)=>(
         <div key={ind}>
           <ClientSays val={val}/>

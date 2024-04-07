@@ -2,10 +2,14 @@ import React, { useEffect } from "react";
 import prolfileIMG from "../images/img/userProfile.png";
 import { useAuth } from "../Context/authContext";
 import { IoCloseSharp } from "react-icons/io5";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Profile({ handleProfileOpen }) {
   useEffect(() => {
     document.body.classList.add("overflow-y-hidden");
+    AOS.init({ offset: 200, duration: 600 });
 
     return () => {
       document.body.classList.remove("overflow-y-hidden");
@@ -25,7 +29,7 @@ function Profile({ handleProfileOpen }) {
     <>
       <div className="w-screen text-center h-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center top-0 z-50 fixed overflow-hidden">
     
-         <section className="bg-white text-gray-400 h-screen text-lg mobile:h-auto p-4 max-w-full tablet:min-w-56 rounded-md">
+         <section className="bg-white text-gray-400 h-screen text-lg mobile:h-auto p-4 max-w-full tablet:min-w-56 rounded-md" data-aos="fade-up">
          <p className="text-white w-fit mt-16 mobile:mt-auto ml-auto" onClick={handleProfileOpen}>
             <IoCloseSharp className="text-black text-3xl" />
           </p>

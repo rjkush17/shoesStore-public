@@ -1,6 +1,6 @@
 
-blog component
-blog page (lazy loading, change title)
 font in chrom
 
-add content
+
+animation library ka code componrnt me hi use karna hai
+

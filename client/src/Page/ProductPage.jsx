@@ -7,6 +7,9 @@ import { useListingData } from "../hook/useListingData";
 import { useDispatch } from "react-redux";
 import { addCart } from "../store/slices/cart";
 import { useNavigate } from "react-router-dom";
+//animation librarly
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function ProductPage() {
   const { productID } = useParams();
@@ -16,6 +19,7 @@ function ProductPage() {
 
   useEffect(() => {
     fetchData(productID);
+    AOS.init({ offset: 200, duration: 600 });
     //scroll to top when open page
     window.scrollTo(0, 0);
     document.title = "Product Details ";
