@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Slider from "../Components/Sliders";
 import { RiShoppingBagLine } from "react-icons/ri";
 import { FaInstagram } from "react-icons/fa6";
@@ -9,11 +9,12 @@ import home_single from "../images/home/home_single.jpg";
 import { useNavigate } from "react-router-dom";
 import useHomeData from "../hook/useHomeData";
 import ProductCard from "../Components/ProductCard";
-import Blog from "../Components/Blog";
+// import Blog from "../Components/Blog";
 import preloader from "../images/loader.gif";
 //animation librarly
 import AOS from "aos";
 import "aos/dist/aos.css";
+const Blog = React.lazy(() => import("../Components/Blog"));
 
 
 function Home() {
@@ -184,7 +185,10 @@ function Home() {
       </section>
 
       {/* Blog */}
+    
+      <Suspense fallback={"loading.."}>
       <Blog />
+          </Suspense>
     </main>
   );
 }
