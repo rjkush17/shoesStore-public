@@ -61,7 +61,7 @@ function Shop() {
           <p className="text-4xl mobile:text-7xl mb-2 mobile:mb-6">SHOP</p>
           <p className="text-xl uppercase">Shop &gt; {type}</p>
         </div>
-        {isLoading && <Preloader condition={true}/>}
+        {isLoading && <Preloader/>}
         {errors && <p className="error w-10/12 mx-auto">{errors}</p>}
         {!isLoading && !errors && sorted && (
         <div className="flex flex-col-reverse tablet:flex-row w-full">
