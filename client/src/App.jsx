@@ -14,7 +14,7 @@ import Model_Loader from "./Components/Model_Loader"
 //importing pages
 import Preloader from "./Components/Preloader";
 const Home = React.lazy(() => import("./Page/Home"));
-const Shop = React.lazy(() => import("./Page/Shop"));
+const Shop = React.lazy(() => import("./Page/shop"));
 const NotFoundPage = React.lazy(() => import("./Page/NotFoundPage"));
 const About = React.lazy(() => import("./Page/About"));
 const Purchase = React.lazy(() => import("./Page/Purchase"));
