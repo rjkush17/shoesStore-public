@@ -1,2 +1,2 @@
-export const baseURL = "https://stylish-shoes-mern.vercel.app/api/";
+export const baseURL = "https://shoes-store-backend.vercel.app/api/";
 
